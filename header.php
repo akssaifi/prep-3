@@ -1874,7 +1874,7 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
                 <?php endif; ?>
             </div>
             <button class="btn btn-outline-gold" style="margin-top: 1.5rem; width: 100%;" onclick="closeAppModal()">
-                Maybe Later
+                Close
             </button>
         </div>
     </div>
