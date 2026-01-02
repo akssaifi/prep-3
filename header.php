@@ -37,28 +37,28 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
     <!-- Custom Compiled CSS -->
     <style>
         :root {
-            /* Light & Gold Color Palette */
-            --royal-light: #FFFFFF;
-            --royal-lighter: #F8F9FA;
-            --royal-light-accent: #F0F2F5;
+            /* Modern Dark & Light Color Palette */
+            --royal-light: #F5F7FA;
+            --royal-lighter: #ECEFF4;
+            --royal-light-accent: #E2E8F0;
             --royal-white: #FFFFFF;
-            --royal-gold: #D4AF37;
-            --royal-gold-light: #FFD700;
-            --royal-gold-dark: #B7950B;
-            --royal-accent: #C9A227;
-            --royal-dark: #2C3E50;
-            --royal-darker: #1A252F;
-            --royal-gray: #6C757D;
-            --royal-gray-light: #8D99A7;
-            --royal-text: #2C3E50;
-            --royal-text-light: #495057;
-            --royal-text-dark: #6C757D;
-            --royal-success: #28A745;
-            --royal-warning: #FFC107;
-            --royal-danger: #DC3545;
-            --royal-info: #17A2B8;
-            --royal-primary: #007BFF;
-            --royal-border: #E9ECEF;
+            --royal-gold: #8B73C4; /* Purple accent */
+            --royal-gold-light: #A99ED0; /* Lighter purple */
+            --royal-gold-dark: #6B5B9A; /* Darker purple */
+            --royal-accent: #7D6AA7; /* Complementary purple */
+            --royal-dark: #2A2F43; /* Deep blue-gray */
+            --royal-darker: #1B1F2D; /* Dark blue-black */
+            --royal-gray: #7C8A9D; /* Muted blue-gray */
+            --royal-gray-light: #9CA8BA; /* Light blue-gray */
+            --royal-text: #333A4D; /* Dark blue-gray */
+            --royal-text-light: #5A6476; /* Lighter blue-gray */
+            --royal-text-dark: #6B7588; /* Medium blue-gray */
+            --royal-success: #4CAF8B; /* Sophisticated green */
+            --royal-warning: #FFB347; /* Warm amber */
+            --royal-danger: #E57373; /* Muted red */
+            --royal-info: #4FC3F7; /* Bright blue */
+            --royal-primary: #5C6BC0; /* Purple-blue */
+            --royal-border: #D1D5DA; /* Soft gray border */
             
             /* Layout Variables */
             --border-radius: 12px;
@@ -69,8 +69,8 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
             --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
             --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
-            --glow: 0 0 30px rgba(212, 175, 55, 0.15);
-            --gold-gradient: linear-gradient(135deg, var(--royal-gold), var(--royal-gold-light));
+            --glow: 0 0 30px rgba(139, 115, 196, 0.15); /* Updated to match new purple */
+            --gold-gradient: linear-gradient(135deg, var(--royal-gold), var(--royal-gold-light)); /* Now purple gradient */
             --light-gradient: linear-gradient(135deg, var(--royal-white), var(--royal-lighter));
             --navbar-height: 80px;
         }
@@ -510,28 +510,28 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
     <!-- Custom Compiled CSS -->
      <style>
         :root {
-            /* Light & Gold Color Palette */
-            --royal-light: #FFFFFF;
-            --royal-lighter: #F8F9FA;
-            --royal-light-accent: #F0F2F5;
+            /* Modern Dark & Light Color Palette */
+            --royal-light: #F5F7FA;
+            --royal-lighter: #ECEFF4;
+            --royal-light-accent: #E2E8F0;
             --royal-white: #FFFFFF;
-            --royal-gold: #D4AF37;
-            --royal-gold-light: #FFD700;
-            --royal-gold-dark: #B7950B;
-            --royal-accent: #C9A227;
-            --royal-dark: #2C3E50;
-            --royal-darker: #1A252F;
-            --royal-gray: #6C757D;
-            --royal-gray-light: #8D99A7;
-            --royal-text: #2C3E50;
-            --royal-text-light: #495057;
-            --royal-text-dark: #6C757D;
-            --royal-success: #28A745;
-            --royal-warning: #FFC107;
-            --royal-danger: #DC3545;
-            --royal-info: #17A2B8;
-            --royal-primary: #007BFF;
-            --royal-border: #E9ECEF;
+            --royal-gold: #8B73C4; /* Purple accent */
+            --royal-gold-light: #A99ED0; /* Lighter purple */
+            --royal-gold-dark: #6B5B9A; /* Darker purple */
+            --royal-accent: #7D6AA7; /* Complementary purple */
+            --royal-dark: #2A2F43; /* Deep blue-gray */
+            --royal-darker: #1B1F2D; /* Dark blue-black */
+            --royal-gray: #7C8A9D; /* Muted blue-gray */
+            --royal-gray-light: #9CA8BA; /* Light blue-gray */
+            --royal-text: #333A4D; /* Dark blue-gray */
+            --royal-text-light: #5A6476; /* Lighter blue-gray */
+            --royal-text-dark: #6B7588; /* Medium blue-gray */
+            --royal-success: #4CAF8B; /* Sophisticated green */
+            --royal-warning: #FFB347; /* Warm amber */
+            --royal-danger: #E57373; /* Muted red */
+            --royal-info: #4FC3F7; /* Bright blue */
+            --royal-primary: #5C6BC0; /* Purple-blue */
+            --royal-border: #D1D5DA; /* Soft gray border */
             
             /* Layout Variables */
             --border-radius: 12px;
@@ -542,8 +542,8 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
             --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
             --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
-            --glow: 0 0 30px rgba(212, 175, 55, 0.15);
-            --gold-gradient: linear-gradient(135deg, var(--royal-gold), var(--royal-gold-light));
+            --glow: 0 0 30px rgba(139, 115, 196, 0.15); /* Updated to match new purple */
+            --gold-gradient: linear-gradient(135deg, var(--royal-gold), var(--royal-gold-light)); /* Now purple gradient */
             --light-gradient: linear-gradient(135deg, var(--royal-white), var(--royal-lighter));
             --navbar-height: 80px;
         }
