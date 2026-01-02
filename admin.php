@@ -31,6 +31,9 @@ if ($action_req === 'delete' && $id_req > 0) {
         case 'video_resource':
             $sql = "DELETE FROM video_resources WHERE id = $id_req";
             break;
+        case 'blog':
+            $sql = "DELETE FROM blogs WHERE id = $id_req";
+            break;
     }
 
     if ($sql && mysqli_query($conn, $sql)) {
@@ -61,6 +64,9 @@ if ($action_req === 'toggle_status' && $id_req > 0) {
             break;
         case 'video_resource':
             $sql = "UPDATE video_resources SET status = '$new_status' WHERE id = $id_req";
+            break;
+        case 'blog':
+            $sql = "UPDATE blogs SET status = '$new_status' WHERE id = $id_req";
             break;
     }
 
@@ -799,6 +805,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         case 'edit_blog':
             $id = intval($_POST['id']);
             $title = sanitize($_POST['title']);
+            $slug = generateSlug($title); // Generate slug from title
             $content = $_POST['content']; // Don't sanitize HTML content
             $status = sanitize($_POST['status']);
 
@@ -823,6 +830,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 
             $sql = "UPDATE blogs SET 
                     title = '$title',
+                    slug = '$slug',
                     content = '$content'
                     $image_sql,
                     status = '$status',
@@ -872,6 +880,7 @@ $edit_subject = null;
 $edit_book = null;
 $edit_speaking_example = null;
 $edit_video_resource = null;
+$edit_blog = null;
 
 if ($action_req === 'edit' && $id_req > 0 && !empty($type_req)) {
     switch ($type_req) {
@@ -899,6 +908,11 @@ if ($action_req === 'edit' && $id_req > 0 && !empty($type_req)) {
             $result = mysqli_query($conn, "SELECT * FROM video_resources WHERE id = $id_req");
             $edit_video_resource = mysqli_fetch_assoc($result);
             $current_section = 'video_resources';
+            break;
+        case 'blog':
+            $result = mysqli_query($conn, "SELECT * FROM blogs WHERE id = $id_req");
+            $edit_blog = mysqli_fetch_assoc($result);
+            $current_section = 'blogs';
             break;
     }
 }

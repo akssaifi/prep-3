@@ -197,6 +197,28 @@ $tables_sql = [
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
         INDEX idx_category_status (category, status),
         FULLTEXT idx_search (title, description)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+
+    // Blogs Table
+    "CREATE TABLE IF NOT EXISTS blogs (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        title VARCHAR(200) NOT NULL,
+        slug VARCHAR(225) UNIQUE NOT NULL,
+        image VARCHAR(255),
+        content LONGTEXT,
+        excerpt TEXT,
+        meta_title VARCHAR(150),
+        meta_description VARCHAR(300),
+        author VARCHAR(100) DEFAULT 'Admin',
+        status ENUM('published', 'draft') DEFAULT 'draft',
+        view_count INT DEFAULT 0,
+        is_featured BOOLEAN DEFAULT 0,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        INDEX idx_status (status),
+        INDEX idx_featured (is_featured),
+        INDEX idx_created_at (created_at),
+        FULLTEXT idx_search (title, content, excerpt)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"
 
 ];
@@ -292,6 +314,7 @@ function getDashboardStats($conn)
         'total_courses' => "SELECT COUNT(*) as count FROM courses WHERE status='active'",
         'total_subjects' => "SELECT COUNT(*) as count FROM subjects WHERE status='active'",
         'total_books' => "SELECT COUNT(*) as count FROM books WHERE status='published'",
+        'total_blogs' => "SELECT COUNT(*) as count FROM blogs WHERE status='published'",
         'featured_courses' => "SELECT COUNT(*) as count FROM courses WHERE is_featured=1 AND status='active'",
         'bestsellers' => "SELECT COUNT(*) as count FROM subjects WHERE is_bestseller=1 AND status='active'",
         'free_materials' => "SELECT COUNT(*) as count FROM books WHERE is_free=1 AND is_independent=1 AND status='published'"
