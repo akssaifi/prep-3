@@ -1577,13 +1577,25 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
             box-shadow: var(--shadow-xl);
             z-index: 998;
             transition: var(--transition);
-            animation: float 3s ease-in-out infinite;
+            animation: float 3s ease-in-out infinite, pulse 2s infinite;
             cursor: pointer;
         }
 
         .app-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4);
+            transform: scale(1.15);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.5);
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+            }
         }
         
         /* Responsive Typography */
@@ -1834,16 +1846,21 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
                 <?php endif; ?>
                 
                 <?php if(!empty($settings['ios_app_link'])): ?>
-                <a href="<?php echo htmlspecialchars($settings['ios_app_link']); ?>" class="app-modal-button" target="_blank">
+                <div class="app-modal-button" onclick="window.open('<?php echo htmlspecialchars($settings['ios_app_link']); ?>', '_blank')">
                     <div class="app-icon">
                         <i class="fab fa-apple"></i>
                     </div>
                     <div class="app-info">
                         <div class="app-name">iOS App</div>
                         <div class="app-desc">Download from App Store</div>
+                        <?php if(!empty($settings['ios_org_pass'])): ?>
+                        <div class="app-desc" style="font-size: 0.8rem; margin-top: 0.5rem; color: var(--royal-gold); font-weight: 600; background: rgba(212, 175, 55, 0.1); padding: 0.25rem 0.5rem; border-radius: 4px; display: inline-block;">
+                            <i class="fas fa-key"></i> Org Code: <?php echo htmlspecialchars($settings['ios_org_pass']); ?>
+                        </div>
+                        <?php endif; ?>
                     </div>
                     <i class="fas fa-external-link-alt"></i>
-                </a>
+                </div>
                 <?php endif; ?>
             </div>
             <button class="btn btn-outline-gold" style="margin-top: 1.5rem; width: 100%;" onclick="closeAppModal()">
