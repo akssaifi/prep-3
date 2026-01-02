@@ -1,7 +1,7 @@
 </main>
 
 <!-- Ultimate Premium Footer -->
-<footer class="bg-royal-dark text-white position-relative overflow-hidden">
+<footer class="bg-dark-blue text-white position-relative overflow-hidden">
     <!-- Background Elements -->
     <div class="footer-bg-elements">
         <div class="element element-1"></div>
@@ -20,12 +20,12 @@
                         <i class="fas fa-crown"></i>
                     </div>
                     <div>
-                        <h4 class="fw-bold mb-0 text-gold"><?php echo htmlspecialchars($settings['site_name']); ?></h4>
-                        <small class="text-royal-text-dark"><?php echo htmlspecialchars($settings['tagline'] ?? 'Excellence in Education & Immigration'); ?></small>
+                        <h4 class="fw-bold mb-0 text-blue-gold"><?php echo htmlspecialchars($settings['site_name']); ?></h4>
+                        <small class="text-light"><?php echo htmlspecialchars($settings['tagline'] ?? 'Excellence in Education & Immigration'); ?></small>
                     </div>
                 </div>
                 
-                <p class="text-royal-text-dark mb-4">
+                <p class="text-light mb-4">
                     We provide world-class coaching for English proficiency tests, comprehensive language training, 
                     and expert guidance for study abroad programs and immigration processes.
                 </p>
@@ -35,9 +35,9 @@
                 <div class="newsletter-form mb-4">
                     <h6 class="fw-bold mb-3 text-white">Subscribe to Newsletter</h6>
                     <form class="d-flex gap-2" id="newsletterForm">
-                        <input type="email" class="form-control form-control-sm bg-royal-light border-royal-gray text-white" 
+                        <input type="email" class="form-control form-control-sm bg-light-blue border-blue text-dark" 
                                placeholder="Your email" required id="newsletterEmail">
-                        <button type="submit" class="btn-royal btn-sm">
+                        <button type="submit" class="btn btn-blue btn-sm">
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </form>
@@ -207,7 +207,7 @@
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div>
-                                <span class="text-royal-text-dark"><?php echo htmlspecialchars($settings['address']); ?></span>
+                                <span class="text-light"><?php echo htmlspecialchars($settings['address']); ?></span>
                             </div>
                         </div>
                     </li>
@@ -217,20 +217,20 @@
         </div>
         
         <!-- Footer Bottom -->
-        <div class="border-top border-royal-gray pt-5">
+        <div class="border-top border-blue pt-5">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="mb-0 text-royal-text-dark">
+                    <p class="mb-0 text-light">
                         &copy; <?php echo date('Y'); ?> <?php echo htmlspecialchars($settings['site_name']); ?>. All rights reserved.
                     </p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <div class="d-flex justify-content-md-end gap-4">
                         
-                        <a href="privacy.php" class="text-royal-text-dark text-decoration-none hover-lift">
+                        <a href="privacy.php" class="text-light text-decoration-none hover-lift">
                             Privacy Policy
                         </a>
-                        <a href="terms.php" class="text-royal-text-dark text-decoration-none hover-lift">
+                        <a href="terms.php" class="text-light text-decoration-none hover-lift">
                             Terms of Service
                         </a>
                     </div>
@@ -470,10 +470,10 @@
     }
     
     .social-link-premium:hover {
-        background: var(--royal-gold);
+        background: var(--blue-gold);
         transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
-        color: var(--royal-dark);
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        color: white;
     }
     
     .contact-icon {

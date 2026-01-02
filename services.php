@@ -10,17 +10,17 @@ include 'header.php';
     <section class="py-8">
         <div class="row align-items-center">
             <div class="col-lg-8 mx-auto text-center">
-                <span class="badge bg-gold-transparent text-gold fs-6 px-4 py-2 mb-4 rounded-pill">
+                <span class="badge bg-blue-transparent text-blue-gold fs-6 px-4 py-2 mb-4 rounded-pill">
                     <i class="fas fa-crown me-2"></i> Premium Services
                 </span>
                 <h1 class="display-3 fw-bold mb-4">Comprehensive Academic & Immigration Support</h1>
                 <p class="lead text-muted mb-5">We provide end-to-end guidance for your educational journey, from study preparation to visa processing and beyond.</p>
                 
                 <div class="d-flex flex-wrap gap-3 justify-content-center">
-                    <a href="#main-services" class="btn-royal">
+                    <a href="#main-services" class="btn btn-primary">
                         <i class="fas fa-list me-2"></i> Explore Services
                     </a>
-                    <a href="contact.php" class="btn btn-outline-gold">
+                    <a href="contact.php" class="btn btn-outline-primary">
                         <i class="fas fa-calendar-check me-2"></i> Free Consultation
                     </a>
                 </div>
@@ -38,10 +38,10 @@ include 'header.php';
         <div class="row g-5">
             <!-- Service 1 -->
             <div class="col-lg-4 col-md-6">
-                <div class="service-card border-royal-gold rounded-4 p-5 h-100">
+                <div class="service-card border-blue rounded-4 p-5 h-100">
                     <div class="service-icon mb-4">
-                        <div class="icon-circle-lg bg-gold-transparent">
-                            <i class="fas fa-passport text-gold fs-2"></i>
+                        <div class="icon-circle-lg bg-blue-transparent">
+                            <i class="fas fa-passport text-blue-gold fs-2"></i>
                         </div>
                     </div>
                     <h3 class="h3 fw-bold mb-3">WES/ECA Assistance</h3>
@@ -344,26 +344,26 @@ include 'header.php';
         padding-bottom: 6rem !important;
     }
 
-    .bg-gold-transparent {
-        background: rgba(212, 175, 55, 0.1) !important;
-        border: 1px solid rgba(212, 175, 55, 0.2) !important;
+    .bg-blue-transparent {
+        background: rgba(59, 130, 246, 0.1) !important;
+        border: 1px solid rgba(59, 130, 246, 0.2) !important;
     }
 
-    .border-royal-gold {
-        border-color: rgba(212, 175, 55, 0.2) !important;
+    .border-blue {
+        border-color: rgba(59, 130, 246, 0.2) !important;
     }
 
-    .text-gold {
-        color: #D4AF37 !important;
+    .text-blue-gold {
+        color: #0F204E !important;
     }
 
     .bg-light-section {
-        background: linear-gradient(135deg, rgba(212, 175, 55, 0.03), rgba(212, 175, 55, 0.01));
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.03), rgba(59, 130, 246, 0.01));
     }
 
     .service-card {
         background: white;
-        border: 1px solid rgba(212, 175, 55, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.1);
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
@@ -376,7 +376,7 @@ include 'header.php';
         left: 0;
         right: 0;
         height: 4px;
-        background: linear-gradient(90deg, #D4AF37, #FFD700);
+        background: linear-gradient(90deg, #0F204E, #1E40AF);
         transform: scaleX(0);
         transform-origin: left;
         transition: transform 0.4s ease;
@@ -384,8 +384,8 @@ include 'header.php';
 
     .service-card:hover {
         transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15) !important;
-        border-color: #D4AF37;
+        box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15) !important;
+        border-color: #0F204E;
     }
 
     .service-card:hover::before {
@@ -393,14 +393,14 @@ include 'header.php';
     }
 
     .country-card {
-        border: 1px solid rgba(212, 175, 55, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.1);
         transition: all 0.3s ease;
     }
 
     .country-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
-        border-color: #D4AF37;
+        border-color: #0F204E;
     }
 
     .icon-circle-lg {
@@ -421,7 +421,7 @@ include 'header.php';
         align-items: center;
         justify-content: center;
         margin: 0 auto;
-        border: 2px solid rgba(212, 175, 55, 0.2);
+        border: 2px solid rgba(59, 130, 246, 0.2);
     }
 
     .btn-royal {
