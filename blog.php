@@ -119,6 +119,7 @@ include 'header.php';
     
     .blog-excerpt {
         line-height: 1.8;
+        overflow-wrap: break-word;
     }
     
     .letter-spacing-2 {
