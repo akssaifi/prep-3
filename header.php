@@ -1573,12 +1573,19 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+            font-size: 14px; /* Reduced font size to fit both icons */
             box-shadow: var(--shadow-xl);
             z-index: 998;
             transition: var(--transition);
             animation: float 3s ease-in-out infinite, pulse 2s infinite;
             cursor: pointer;
+            flex-direction: column; /* Stack icons vertically */
+            gap: 2px; /* Small gap between icons */
+        }
+        
+        .app-float i {
+            margin: 0;
+            line-height: 1;
         }
 
         .app-float:hover {
@@ -1854,8 +1861,11 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
                         <div class="app-name">iOS App</div>
                         <div class="app-desc">Download from App Store</div>
                         <?php if(!empty($settings['ios_org_pass'])): ?>
-                        <div class="app-desc" style="font-size: 0.8rem; margin-top: 0.5rem; color: var(--royal-gold); font-weight: 600; background: rgba(212, 175, 55, 0.1); padding: 0.25rem 0.5rem; border-radius: 4px; display: inline-block;">
-                            <i class="fas fa-key"></i> Org Code: <?php echo htmlspecialchars($settings['ios_org_pass']); ?>
+                        <div class="org-code-section" style="margin-top: 0.75rem; padding: 0.5rem; background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: var(--border-radius-sm); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-key" style="color: var(--royal-gold); font-size: 1rem;"></i>
+                            <div style="font-weight: 600; color: var(--royal-gold-dark); font-size: 0.9rem;">
+                                Organization Code: <strong><?php echo htmlspecialchars($settings['ios_org_pass']); ?></strong>
+                            </div>
                         </div>
                         <?php endif; ?>
                     </div>
@@ -2097,7 +2107,8 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
     <!-- App Floating Icon -->
     <?php if(!empty($settings['android_app_link']) || !empty($settings['ios_app_link'])): ?>
     <div class="app-float" onclick="openAppModal()" title="Download our app">
-        <i class="fas fa-mobile-alt"></i>
+        <i class="fab fa-apple"></i>
+        <i class="fab fa-google-play"></i>
     </div>
     <?php endif; ?>
 
