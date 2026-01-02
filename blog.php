@@ -41,49 +41,80 @@ include 'header.php';
                 </div>
             <?php else: ?>
                 <?php foreach ($blogs as $blog): ?>
-                    <div class="blog-card bg-white rounded-3 border border-royal-gold mb-4 p-4">
-                        <div class="row g-4">
+                    <div class="blog-card bg-white rounded-3 border border-royal-gold mb-4 p-3 p-md-4">
+                        <div class="row g-3 g-md-4">
                             <?php if (!empty($blog['image'])): ?>
-                                <div class="col-lg-4 col-md-5">
+                                <div class="col-12 col-md-5">
                                     <img src="<?php echo htmlspecialchars($blog['image']); ?>" 
                                          alt="<?php echo htmlspecialchars($blog['title']); ?>" 
-                                         class="img-fluid rounded" style="width: 100%; height: 250px; object-fit: cover;">
+                                         class="img-fluid rounded" style="width: 100%; height: 200px; object-fit: cover;">
                                 </div>
-                                <div class="col-lg-8 col-md-7">
-                            <?php else: ?>
-                                <div class="col-12">
-                            <?php endif; ?>
-                                <div class="blog-content">
-                                    <small class="text-muted mb-2 d-block">
-                                        <i class="fas fa-calendar me-1"></i>
-                                        <?php echo date('F j, Y', strtotime($blog['created_at'])); ?>
-                                    </small>
-                                    <h3 class="fw-bold text-dark mb-3"><?php echo htmlspecialchars($blog['title']); ?></h3>
-                                    <div class="blog-excerpt" id="blog-excerpt-<?php echo $blog['id']; ?>">
-                                        <?php 
-                                        $content = strip_tags($blog['content']);
-                                        if (strlen($content) > 300) {
-                                            echo '<div class="blog-preview" id="blog-preview-' . $blog['id'] . '">' . nl2br(htmlspecialchars(substr($content, 0, 300))) . '...</div>';
-                                            echo '<div class="blog-full-content d-none" id="blog-full-' . $blog['id'] . '">' . nl2br(htmlspecialchars($content)) . '</div>';
+                                <div class="col-12 col-md-7">
+                                    <div class="blog-content">
+                                        <small class="text-muted mb-2 d-block">
+                                            <i class="fas fa-calendar me-1"></i>
+                                            <?php echo date('F j, Y', strtotime($blog['created_at'])); ?>
+                                        </small>
+                                        <h3 class="fw-bold text-dark mb-3"><?php echo htmlspecialchars($blog['title']); ?></h3>
+                                        <div class="blog-excerpt" id="blog-excerpt-<?php echo $blog['id']; ?>">
+                                            <?php 
+                                            $content = strip_tags($blog['content']);
+                                            if (strlen($content) > 300) {
+                                                echo '<div class="blog-preview" id="blog-preview-' . $blog['id'] . '">' . nl2br(htmlspecialchars(substr($content, 0, 300))) . '...</div>';
+                                                echo '<div class="blog-full-content d-none" id="blog-full-' . $blog['id'] . '">' . nl2br(htmlspecialchars($content)) . '</div>';
+                                                ?>
+                                                <button class="btn btn-link text-gold p-0 ms-1 read-more-btn" 
+                                                        data-blog-id="<?php echo $blog['id']; ?>"
+                                                        data-content="<?php echo htmlspecialchars($blog['content']); ?>"
+                                                        data-title="<?php echo htmlspecialchars($blog['title']); ?>">
+                                                    Read More
+                                                </button>
+                                                <button class="btn btn-link text-gold p-0 ms-1 read-less-btn d-none" 
+                                                        data-blog-id="<?php echo $blog['id']; ?>">
+                                                    Read Less
+                                                </button>
+                                                <?php
+                                            } else {
+                                                echo nl2br(htmlspecialchars($content));
+                                            }
                                             ?>
-                                            <button class="btn btn-link text-gold p-0 ms-1 read-more-btn" 
-                                                    data-blog-id="<?php echo $blog['id']; ?>"
-                                                    data-content="<?php echo htmlspecialchars($blog['content']); ?>"
-                                                    data-title="<?php echo htmlspecialchars($blog['title']); ?>">
-                                                Read More
-                                            </button>
-                                            <button class="btn btn-link text-gold p-0 ms-1 read-less-btn d-none" 
-                                                    data-blog-id="<?php echo $blog['id']; ?>">
-                                                Read Less
-                                            </button>
-                                            <?php
-                                        } else {
-                                            echo nl2br(htmlspecialchars($content));
-                                        }
-                                        ?>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            <?php else: ?>
+                                <div class="col-12">
+                                    <div class="blog-content">
+                                        <small class="text-muted mb-2 d-block">
+                                            <i class="fas fa-calendar me-1"></i>
+                                            <?php echo date('F j, Y', strtotime($blog['created_at'])); ?>
+                                        </small>
+                                        <h3 class="fw-bold text-dark mb-3"><?php echo htmlspecialchars($blog['title']); ?></h3>
+                                        <div class="blog-excerpt" id="blog-excerpt-<?php echo $blog['id']; ?>">
+                                            <?php 
+                                            $content = strip_tags($blog['content']);
+                                            if (strlen($content) > 300) {
+                                                echo '<div class="blog-preview" id="blog-preview-' . $blog['id'] . '">' . nl2br(htmlspecialchars(substr($content, 0, 300))) . '...</div>';
+                                                echo '<div class="blog-full-content d-none" id="blog-full-' . $blog['id'] . '">' . nl2br(htmlspecialchars($content)) . '</div>';
+                                                ?>
+                                                <button class="btn btn-link text-gold p-0 ms-1 read-more-btn" 
+                                                        data-blog-id="<?php echo $blog['id']; ?>"
+                                                        data-content="<?php echo htmlspecialchars($blog['content']); ?>"
+                                                        data-title="<?php echo htmlspecialchars($blog['title']); ?>">
+                                                    Read More
+                                                </button>
+                                                <button class="btn btn-link text-gold p-0 ms-1 read-less-btn d-none" 
+                                                        data-blog-id="<?php echo $blog['id']; ?>">
+                                                    Read Less
+                                                </button>
+                                                <?php
+                                            } else {
+                                                echo nl2br(htmlspecialchars($content));
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -124,6 +155,43 @@ include 'header.php';
     
     .letter-spacing-2 {
         letter-spacing: 2px;
+    }
+    
+    /* Responsive adjustments for blog */
+    @media (max-width: 768px) {
+        .display-3 {
+            font-size: 2rem;
+        }
+        
+        .blog-card {
+            padding: 1rem !important;
+        }
+        
+        .blog-card img {
+            height: 150px !important;
+        }
+        
+        .blog-card h3 {
+            font-size: 1.25rem;
+        }
+        
+        .blog-excerpt {
+            font-size: 0.9rem;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .display-3 {
+            font-size: 1.75rem;
+        }
+        
+        .blog-card img {
+            height: 120px !important;
+        }
+        
+        .blog-card h3 {
+            font-size: 1.1rem;
+        }
     }
 </style>
 
