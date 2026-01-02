@@ -254,7 +254,7 @@ include 'header.php';
                         <div class="country-card bg-white rounded-4 p-5 h-100 text-center">
                             <div class="country-flag mb-4">
                                 <div class="flag-circle bg-gold-transparent">
-                                    <i class="fas fa-maple-leaf text-gold fs-1"></i>
+                                    <i class="fas fa-flag-usa text-gold fs-1"></i>
                                 </div>
                             </div>
                             <h4 class="h4 fw-bold mb-3">Canada Immigration</h4>
@@ -274,7 +274,7 @@ include 'header.php';
                         <div class="country-card bg-white rounded-4 p-5 h-100 text-center">
                             <div class="country-flag mb-4">
                                 <div class="flag-circle bg-gold-transparent">
-                                    <i class="fas fa-landmark text-gold fs-1"></i>
+                                    <i class="fas fa-flag text-gold fs-1"></i>
                                 </div>
                             </div>
                             <h4 class="h4 fw-bold mb-3">UK Study Guidance</h4>
@@ -294,7 +294,7 @@ include 'header.php';
                         <div class="country-card bg-white rounded-4 p-5 h-100 text-center">
                             <div class="country-flag mb-4">
                                 <div class="flag-circle bg-gold-transparent">
-                                    <i class="fas fa-koala text-gold fs-1"></i>
+                                    <i class="fas fa-flag-australia text-gold fs-1"></i>
                                 </div>
                             </div>
                             <h4 class="h4 fw-bold mb-3">Australia Study</h4>

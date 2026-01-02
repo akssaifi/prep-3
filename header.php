@@ -1560,6 +1560,31 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
             box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
         }
         
+        /* App Float */
+        .app-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 9rem; /* Positioned to the left of WhatsApp icon */
+            width: 60px;
+            height: 60px;
+            background: var(--gold-gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: var(--shadow-xl);
+            z-index: 998;
+            transition: var(--transition);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .app-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4);
+        }
+        
         /* Responsive Typography */
         @media (max-width: 1200px) {
             .hero-title {
