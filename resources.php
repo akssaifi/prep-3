@@ -418,12 +418,12 @@ include 'header.php';
         --royal-bg: #f8f9fa;
         --royal-light: #ffffff;
         --royal-card: #ffffff;
-        --royal-border: rgba(212, 175, 55, 0.2);
+        --royal-border: rgba(45, 90, 135, 0.2);
         --royal-text: #212529;
         --royal-text-dark: #6c757d;
-        --royal-gold: #D4AF37;
-        --royal-gold-light: #FFD700;
-        --royal-gold-dark: #B7950B;
+        --royal-gold: #2D5A87;
+        --royal-gold-light: #1A365D;
+        --royal-gold-dark: #0F204E;
         --gold-gradient: linear-gradient(135deg, var(--royal-gold), var(--royal-gold-light));
         --border-radius: 12px;
         --border-radius-sm: 8px;
@@ -448,6 +448,10 @@ include 'header.php';
     }
     
     .text-gold {
+        color: var(--royal-gold) !important;
+    }
+    
+    .text-blue {
         color: var(--royal-gold) !important;
     }
     
@@ -495,7 +499,7 @@ include 'header.php';
     
     .btn-royal:hover {
         transform: translateY(-2px);
-        box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        box-shadow: 0 0 20px rgba(45, 90, 135, 0.3);
         color: white;
     }
     
@@ -522,7 +526,7 @@ include 'header.php';
     .resource-stat-icon {
         width: 70px;
         height: 70px;
-        background: rgba(212, 175, 55, 0.1);
+        background: rgba(45, 90, 135, 0.1);
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -548,7 +552,7 @@ include 'header.php';
     .example-icon {
         width: 50px;
         height: 50px;
-        background: rgba(212, 175, 55, 0.1);
+        background: rgba(45, 90, 135, 0.1);
         border-radius: var(--border-radius-sm);
         display: flex;
         align-items: center;
@@ -592,7 +596,7 @@ include 'header.php';
     .icon-circle-lg {
         width: 80px;
         height: 80px;
-        background: rgba(212, 175, 55, 0.1);
+        background: rgba(45, 90, 135, 0.1);
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -621,7 +625,7 @@ include 'header.php';
     
     /* Transcript styling */
     .transcript-text {
-        background: rgba(212, 175, 55, 0.05);
+        background: rgba(45, 90, 135, 0.05);
         border-radius: var(--border-radius-sm);
         padding: 1rem;
         max-height: 300px;

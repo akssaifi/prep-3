@@ -268,12 +268,12 @@ include 'header.php';
         --royal-bg: #f8f9fa;
         --royal-light: #ffffff;
         --royal-card: #ffffff;
-        --royal-border: rgba(212, 175, 55, 0.2);
+        --royal-border: rgba(45, 90, 135, 0.2);
         --royal-text: #212529;
         --royal-text-dark: #6c757d;
-        --royal-gold: #D4AF37;
-        --royal-gold-light: #FFD700;
-        --royal-gold-dark: #B7950B;
+        --royal-gold: #2D5A87;
+        --royal-gold-light: #1A365D;
+        --royal-gold-dark: #0F204E;
         --gold-gradient: linear-gradient(135deg, var(--royal-gold), var(--royal-gold-light));
         --border-radius: 12px;
         --border-radius-sm: 8px;
@@ -301,14 +301,18 @@ include 'header.php';
         color: var(--royal-gold) !important;
     }
     
+    .text-blue {
+        color: var(--royal-gold) !important;
+    }
+    
     .bg-gold {
         background: var(--gold-gradient) !important;
         color: white !important;
     }
     
     .bg-gold-transparent {
-        background: rgba(212, 175, 55, 0.1) !important;
-        border: 1px solid rgba(212, 175, 55, 0.2) !important;
+        background: rgba(45, 90, 135, 0.1) !important;
+        border: 1px solid rgba(45, 90, 135, 0.2) !important;
     }
     
     /* All Courses Page Styles */
@@ -341,13 +345,13 @@ include 'header.php';
     
     .search-box input:focus {
         border-color: var(--royal-gold);
-        box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+        box-shadow: 0 0 0 0.25rem rgba(45, 90, 135, 0.25);
     }
     
     .icon-circle-lg {
         width: 80px;
         height: 80px;
-        background: rgba(212, 175, 55, 0.1);
+        background: rgba(45, 90, 135, 0.1);
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -424,8 +428,8 @@ include 'header.php';
     }
     
     .filter-tag {
-        background: rgba(212, 175, 55, 0.1);
-        border: 1px solid rgba(212, 175, 55, 0.3);
+        background: rgba(45, 90, 135, 0.1);
+        border: 1px solid rgba(45, 90, 135, 0.3);
         border-radius: 20px;
         padding: 4px 12px;
         font-size: 0.875rem;
