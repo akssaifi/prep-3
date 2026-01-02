@@ -2269,3 +2269,6 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
             }
         });
     </script>
+    </main>
+</body>
+</html>
