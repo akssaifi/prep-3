@@ -1807,7 +1807,7 @@ $stats = getDashboardStats($conn);
                 this.indicators[this.currentIndex].classList.add('active');
                 
                 // Reset animation flag
-                setTimeout(() => {
+                fetch("process_demo.php", {
                     this.isAnimating = false;
                 }, 800);
             }
@@ -1960,8 +1960,8 @@ $stats = getDashboardStats($conn);
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Processing...';
                 submitBtn.disabled = true;
                 
-                // Simulate API call (replace with actual fetch to process_demo.php)
-                setTimeout(() => {
+                // Actual API call to process_demo.php
+                fetch("process_demo.php", {
                     // Success response
                     showAlert('Thank you! Your demo request has been submitted. We will contact you shortly.', 'success');
                     this.reset();
@@ -1973,7 +1973,7 @@ $stats = getDashboardStats($conn);
                         top: 0,
                         behavior: 'smooth'
                     });
-                }, 2000);
+                });
             });
             
             // Remove validation classes on input
