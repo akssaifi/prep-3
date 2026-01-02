@@ -26,29 +26,29 @@ include 'header.php';
     <!-- Resource Stats -->
     <div class="row g-4 mb-5">
         <div class="col-md-4">
-            <div class="resource-stat-card bg-white p-4 rounded-3 text-center border border-royal-gold shadow-sm">
-                <div class="resource-stat-icon mb-3 mx-auto">
-                    <i class="fas fa-download text-gold"></i>
+            <div class="resource-stat-card bg-white p-4 rounded-3 text-center border border-royal-gold shadow-sm" style="border: 1px solid rgba(26, 54, 93, 0.2);">
+                <div class="resource-stat-icon mb-3 mx-auto" style="background: rgba(26, 54, 93, 0.1);">
+                    <i class="fas fa-download text-gold" style="color: var(--royal-gold);"></i>
                 </div>
-                <div class="h2 fw-bold text-gold mb-2"><?php echo count($free_materials); ?></div>
+                <div class="h2 fw-bold mb-2" style="color: var(--royal-gold);"><?php echo count($free_materials); ?></div>
                 <div class="text-dark">Free Study Materials</div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="resource-stat-card bg-white p-4 rounded-3 text-center border border-royal-gold shadow-sm">
-                <div class="resource-stat-icon mb-3 mx-auto">
-                    <i class="fas fa-microphone text-gold"></i>
+            <div class="resource-stat-card bg-white p-4 rounded-3 text-center border border-royal-gold shadow-sm" style="border: 1px solid rgba(26, 54, 93, 0.2);">
+                <div class="resource-stat-icon mb-3 mx-auto" style="background: rgba(26, 54, 93, 0.1);">
+                    <i class="fas fa-microphone text-gold" style="color: var(--royal-gold);"></i>
                 </div>
-                <div class="h2 fw-bold text-gold mb-2"><?php echo count($speaking_examples); ?></div>
+                <div class="h2 fw-bold mb-2" style="color: var(--royal-gold);"><?php echo count($speaking_examples); ?></div>
                 <div class="text-dark">Speaking Examples</div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="resource-stat-card bg-white p-4 rounded-3 text-center border border-royal-gold shadow-sm">
-                <div class="resource-stat-icon mb-3 mx-auto">
-                    <i class="fas fa-play-circle text-gold"></i>
+            <div class="resource-stat-card bg-white p-4 rounded-3 text-center border border-royal-gold shadow-sm" style="border: 1px solid rgba(26, 54, 93, 0.2);">
+                <div class="resource-stat-icon mb-3 mx-auto" style="background: rgba(26, 54, 93, 0.1);">
+                    <i class="fas fa-play-circle text-gold" style="color: var(--royal-gold);"></i>
                 </div>
-                <div class="h2 fw-bold text-gold mb-2"><?php echo count($video_resources); ?></div>
+                <div class="h2 fw-bold mb-2" style="color: var(--royal-gold);"><?php echo count($video_resources); ?></div>
                 <div class="text-dark">Video Resources</div>
             </div>
         </div>
@@ -58,8 +58,8 @@ include 'header.php';
     <section id="free-material" class="mb-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div>
-                <h2 class="fw-bold text-dark mb-2"><i class="fas fa-download me-3 text-gold"></i>Free Study Materials</h2>
-                <p class="text-muted">Download PDFs, guides, and study materials for various tests</p>
+                <h2 class="fw-bold text-dark mb-2"><i class="fas fa-download me-3 text-gold" style="color: var(--royal-gold);"></i>Free Study Materials</h2>
+                <p class="text-muted" style="color: var(--royal-text-dark);">Download PDFs, guides, and study materials for various tests</p>
             </div>
             <div class="filter-buttons">
                 <div class="btn-group" role="group">
@@ -95,7 +95,7 @@ include 'header.php';
             <div class="col-lg-4 col-md-6 material-item" 
                  data-format="<?php echo $file_extension; ?>"
                  data-type="<?php echo $file_format; ?>">
-                <div class="material-card bg-white p-4 rounded-3 h-100 border border-royal-gold">
+                <div class="material-card bg-white p-4 rounded-3 h-100 border border-royal-gold" style="border: 1px solid rgba(26, 54, 93, 0.2);">
                     <?php if(!empty($material['cover_image'])): ?>
                     <div class="cover-image mb-3">
                         <img src="<?php echo htmlspecialchars($material['cover_image']); ?>" 
@@ -105,34 +105,34 @@ include 'header.php';
                     <?php endif; ?>
                     
                     <div class="d-flex justify-content-between align-items-start mb-3">
-                        <div class="material-icon me-3">
-                            <i class="fas <?php echo $file_icon; ?> text-gold"></i>
+                        <div class="material-icon me-3" style="width: 50px; height: 50px; background: rgba(26, 54, 93, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--royal-gold);">
+                            <i class="fas <?php echo $file_icon; ?>"></i>
                         </div>
                         <div class="download-count">
-                            <small class="text-muted">
+                            <small class="text-muted" style="color: var(--royal-text-dark);">
                                 <i class="fas fa-download me-1"></i> <?php echo $material['download_count'] ?? 0; ?>
                             </small>
                         </div>
                     </div>
                     
-                    <h5 class="fw-bold text-dark mb-3"><?php echo htmlspecialchars($material['title']); ?></h5>
+                    <h5 class="fw-bold text-dark mb-3" style="color: var(--royal-text);"><?php echo htmlspecialchars($material['title']); ?></h5>
                     
                     <?php if(!empty($material['author'])): ?>
-                    <p class="text-muted small mb-3">
+                    <p class="text-muted small mb-3" style="color: var(--royal-text-dark);">
                         <i class="fas fa-user me-2"></i><?php echo htmlspecialchars($material['author']); ?>
                     </p>
                     <?php endif; ?>
                     
                     <?php if(!empty($material['description'])): ?>
-                    <p class="text-muted mb-4"><?php echo htmlspecialchars(substr($material['description'], 0, 100)) . '...'; ?></p>
+                    <p class="text-muted mb-4" style="color: var(--royal-text-dark);"><?php echo htmlspecialchars(substr($material['description'], 0, 100)) . '...'; ?></p>
                     <?php endif; ?>
                     
                     <div class="d-flex justify-content-between align-items-center mt-auto">
                         <a href="download.php?type=material&id=<?php echo $material['id']; ?>" 
-                           class="btn-royal btn-sm" onclick="incrementDownload(<?php echo $material['id']; ?>, 'material')">
+                           class="btn-royal btn-sm" onclick="incrementDownload(<?php echo $material['id']; ?>, 'material')" style="background: var(--gold-gradient); color: white; border: none; padding: 6px 12px; border-radius: 8px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; transition: all 0.3s ease;">
                             <i class="fas fa-download me-2"></i> Download
                         </a>
-                        <span class="badge bg-light text-dark border border-royal-gold">
+                        <span class="badge" style="background: rgba(26, 54, 93, 0.1); color: var(--royal-gold); border: 1px solid rgba(26, 54, 93, 0.2);">
                             <?php echo !empty($material['file_format']) ? strtoupper($material['file_format']) : strtoupper($file_extension); ?>
                         </span>
                     </div>
@@ -143,11 +143,11 @@ include 'header.php';
         
         <?php if(empty($free_materials)): ?>
         <div class="text-center py-5">
-            <div class="icon-circle-lg mx-auto mb-4">
-                <i class="fas fa-book text-gold"></i>
+            <div class="icon-circle-lg mx-auto mb-4" style="width: 80px; height: 80px; background: rgba(26, 54, 93, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; color: var(--royal-gold);">
+                <i class="fas fa-book"></i>
             </div>
-            <h3 class="fw-bold text-dark mb-3">No Study Materials Available</h3>
-            <p class="text-muted">Check back later for free study materials.</p>
+            <h3 class="fw-bold text-dark mb-3" style="color: var(--royal-text);">No Study Materials Available</h3>
+            <p class="text-muted" style="color: var(--royal-text-dark);">Check back later for free study materials.</p>
         </div>
         <?php endif; ?>
     </section>
@@ -156,8 +156,8 @@ include 'header.php';
     <section id="speaking-examples" class="mb-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div>
-                <h2 class="fw-bold text-dark mb-2"><i class="fas fa-microphone me-3 text-gold"></i>Speaking Examples</h2>
-                <p class="text-muted">Listen to high-scoring speaking samples with transcripts</p>
+                <h2 class="fw-bold text-dark mb-2" style="color: var(--royal-text);"><i class="fas fa-microphone me-3 text-gold" style="color: var(--royal-gold);"></i>Speaking Examples</h2>
+                <p class="text-muted" style="color: var(--royal-text-dark);">Listen to high-scoring speaking samples with transcripts</p>
             </div>
             <div class="filter-buttons">
                 <div class="btn-group" role="group">
@@ -175,41 +175,50 @@ include 'header.php';
                 $has_transcript = !empty($example['transcript']);
             ?>
             <div class="col-lg-4 col-md-6 example-item" data-level="<?php echo $example['level']; ?>">
-                <div class="example-card bg-white p-4 rounded-3 h-100 border border-royal-gold">
+                <div class="example-card bg-white p-4 rounded-3 h-100 border border-royal-gold" style="border: 1px solid rgba(26, 54, 93, 0.2);">
                     <div class="d-flex justify-content-between align-items-start mb-3">
-                        <div class="example-icon me-3">
-                            <i class="fas fa-headphones text-gold"></i>
+                        <div class="example-icon me-3" style="width: 50px; height: 50px; background: rgba(26, 54, 93, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--royal-gold);">
+                            <i class="fas fa-headphones"></i>
                         </div>
                         <div class="level-badge">
-                            <span class="badge level-badge-<?php echo $example['level']; ?>">
+                            <span class="badge" style="background: <?php 
+                                echo $example['level'] === 'beginner' ? 'rgba(16, 185, 129, 0.1)' : 
+                                    ($example['level'] === 'intermediate' ? 'rgba(245, 158, 11, 0.1)' : 'rgba(239, 68, 68, 0.1)'); 
+                                ?>; color: <?php 
+                                echo $example['level'] === 'beginner' ? '#10B981' : 
+                                    ($example['level'] === 'intermediate' ? '#F59E0B' : '#EF4444'); 
+                                ?>; border: 1px solid <?php 
+                                echo $example['level'] === 'beginner' ? 'rgba(16, 185, 129, 0.2)' : 
+                                    ($example['level'] === 'intermediate' ? 'rgba(245, 158, 11, 0.2)' : 'rgba(239, 68, 68, 0.2)'); 
+                                ?>;">
                                 <?php echo ucfirst($example['level']); ?>
                             </span>
                             <?php if($has_transcript): ?>
-                            <span class="badge bg-success ms-1" style="background: rgba(16, 185, 129, 0.1); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.2);">
+                            <span class="badge ms-1" style="background: rgba(16, 185, 129, 0.1); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.2);">
                                 <i class="fas fa-file-alt me-1"></i> Transcript
                             </span>
                             <?php endif; ?>
                         </div>
                     </div>
                     
-                    <h5 class="fw-bold text-dark mb-3"><?php echo htmlspecialchars($example['title']); ?></h5>
+                    <h5 class="fw-bold text-dark mb-3" style="color: var(--royal-text);"><?php echo htmlspecialchars($example['title']); ?></h5>
                     
                     <?php if(!empty($example['description'])): ?>
-                    <p class="text-muted mb-3"><?php echo htmlspecialchars(substr($example['description'], 0, 100)) . '...'; ?></p>
+                    <p class="text-muted mb-3" style="color: var(--royal-text-dark);"><?php echo htmlspecialchars(substr($example['description'], 0, 100)) . '...'; ?></p>
                     <?php endif; ?>
                     
                     <?php if(!empty($example['duration'])): ?>
-                    <p class="text-muted small mb-4">
+                    <p class="text-muted small mb-4" style="color: var(--royal-text-dark);">
                         <i class="fas fa-clock me-2"></i>Duration: <?php echo $example['duration']; ?>
                     </p>
                     <?php endif; ?>
                     
                     <div class="d-flex gap-2">
-                        <button class="btn-royal btn-sm flex-grow-1" onclick="playAudio('<?php echo htmlspecialchars($example['audio_file']); ?>', <?php echo $example['id']; ?>, '<?php echo htmlspecialchars(addslashes($example['title'])); ?>', '<?php echo htmlspecialchars(addslashes($example['description'])); ?>', '<?php echo $example['level']; ?>', <?php echo $has_transcript ? "'" . htmlspecialchars(addslashes($example['transcript'])) . "'" : 'null'; ?>)">
+                        <button class="btn-royal btn-sm flex-grow-1" onclick="playAudio('<?php echo htmlspecialchars($example['audio_file']); ?>', <?php echo $example['id']; ?>, '<?php echo htmlspecialchars(addslashes($example['title'])); ?>', '<?php echo htmlspecialchars(addslashes($example['description'])); ?>', '<?php echo $example['level']; ?>', <?php echo $has_transcript ? "'" . htmlspecialchars(addslashes($example['transcript'])) . "'" : 'null'; ?>)" style="background: var(--gold-gradient); color: white; border: none; padding: 6px 12px; border-radius: 8px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
                             <i class="fas fa-play me-2"></i> Play Audio
                         </button>
                         <a href="download.php?type=example&id=<?php echo $example['id']; ?>" 
-                           class="btn btn-outline-gold btn-sm" onclick="incrementDownload(<?php echo $example['id']; ?>, 'example')">
+                           class="btn btn-outline-gold btn-sm" onclick="incrementDownload(<?php echo $example['id']; ?>, 'example')" style="color: var(--royal-gold); border: 2px solid var(--royal-gold); background: transparent; padding: 6px 12px; border-radius: 8px; font-weight: 600; transition: all 0.3s ease;">
                             <i class="fas fa-download"></i>
                         </a>
                     </div>
@@ -220,11 +229,11 @@ include 'header.php';
         
         <?php if(empty($speaking_examples)): ?>
         <div class="text-center py-5">
-            <div class="icon-circle-lg mx-auto mb-4">
-                <i class="fas fa-microphone text-gold"></i>
+            <div class="icon-circle-lg mx-auto mb-4" style="width: 80px; height: 80px; background: rgba(26, 54, 93, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; color: var(--royal-gold);">
+                <i class="fas fa-microphone"></i>
             </div>
-            <h3 class="fw-bold text-dark mb-3">No Speaking Examples Available</h3>
-            <p class="text-muted">Check back later for speaking examples.</p>
+            <h3 class="fw-bold text-dark mb-3" style="color: var(--royal-text);">No Speaking Examples Available</h3>
+            <p class="text-muted" style="color: var(--royal-text-dark);">Check back later for speaking examples.</p>
         </div>
         <?php endif; ?>
     </section>
@@ -233,8 +242,8 @@ include 'header.php';
     <section id="video-resources">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div>
-                <h2 class="fw-bold text-dark mb-2"><i class="fas fa-play-circle me-3 text-gold"></i>Video Resources</h2>
-                <p class="text-muted">Watch tutorials, tips, and strategy videos</p>
+                <h2 class="fw-bold text-dark mb-2" style="color: var(--royal-text);"><i class="fas fa-play-circle me-3 text-gold" style="color: var(--royal-gold);"></i>Video Resources</h2>
+                <p class="text-muted" style="color: var(--royal-text-dark);">Watch tutorials, tips, and strategy videos</p>
             </div>
             <div class="filter-buttons">
                 <div class="btn-group" role="group">
@@ -260,22 +269,22 @@ include 'header.php';
         <div class="row g-4 videos-container">
             <?php foreach($video_resources as $video): ?>
             <div class="col-lg-4 col-md-6 video-item" data-category="<?php echo htmlspecialchars($video['category'] ?? ''); ?>">
-                <div class="video-card bg-white rounded-3 overflow-hidden border border-royal-gold">
+                <div class="video-card bg-white rounded-3 overflow-hidden border border-royal-gold" style="border: 1px solid rgba(26, 54, 93, 0.2);">
                     <!-- Video Thumbnail -->
-                    <div class="video-thumbnail position-relative" style="height: 200px; overflow: hidden; cursor: pointer;" 
+                    <div class="video-thumbnail position-relative" style="height: 200px; overflow: hidden; cursor: pointer; background: var(--royal-light);" 
                          onclick="playVideo('<?php echo htmlspecialchars($video['video_url']); ?>', '<?php echo $video['platform']; ?>', '<?php echo htmlspecialchars(addslashes($video['title'])); ?>', '<?php echo htmlspecialchars(addslashes($video['description'])); ?>', <?php echo $video['id']; ?>)">
                         <?php if(!empty($video['thumbnail_url'])): ?>
                         <img src="<?php echo htmlspecialchars($video['thumbnail_url']); ?>" alt="<?php echo htmlspecialchars($video['title']); ?>" 
                              class="img-fluid w-100 h-100" style="object-fit: cover;">
                         <?php else: ?>
-                        <div class="w-100 h-100 d-flex align-items-center justify-content-center bg-light">
-                            <i class="fas fa-play-circle text-gold" style="font-size: 48px;"></i>
+                        <div class="w-100 h-100 d-flex align-items-center justify-content-center" style="background: var(--royal-light);">
+                            <i class="fas fa-play-circle text-gold" style="font-size: 48px; color: var(--royal-gold);"></i>
                         </div>
                         <?php endif; ?>
                         
                         <!-- Play Button Overlay -->
-                        <div class="play-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
-                            <div class="play-button">
+                        <div class="play-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background: rgba(0, 0, 0, 0.5); opacity: 0; transition: opacity 0.3s ease;">
+                            <div class="play-button" style="width: 60px; height: 60px; background: var(--royal-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; transition: transform 0.3s ease;">
                                 <i class="fas fa-play"></i>
                             </div>
                         </div>
@@ -283,22 +292,22 @@ include 'header.php';
                         <!-- Video Duration -->
                         <?php if(!empty($video['duration'])): ?>
                         <div class="duration-badge position-absolute bottom-0 end-0 m-3">
-                            <span class="badge bg-dark text-white"><?php echo $video['duration']; ?></span>
+                            <span class="badge bg-dark text-white" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;"><?php echo $video['duration']; ?></span>
                         </div>
                         <?php endif; ?>
                     </div>
                     
                     <!-- Video Info -->
                     <div class="p-4">
-                        <h5 class="fw-bold text-dark mb-3"><?php echo htmlspecialchars($video['title']); ?></h5>
+                        <h5 class="fw-bold text-dark mb-3" style="color: var(--royal-text);"><?php echo htmlspecialchars($video['title']); ?></h5>
                         
                         <?php if(!empty($video['description'])): ?>
-                        <p class="text-muted mb-3 small"><?php echo htmlspecialchars(substr($video['description'], 0, 80)) . '...'; ?></p>
+                        <p class="text-muted mb-3 small" style="color: var(--royal-text-dark);"><?php echo htmlspecialchars(substr($video['description'], 0, 80)) . '...'; ?></p>
                         <?php endif; ?>
                         
                         <div class="d-flex justify-content-between align-items-center">
                             <?php if(!empty($video['category'])): ?>
-                            <span class="badge bg-light text-dark border border-royal-gold"><?php echo htmlspecialchars($video['category']); ?></span>
+                            <span class="badge" style="background: rgba(26, 54, 93, 0.1); color: var(--royal-gold); border: 1px solid rgba(26, 54, 93, 0.2);"><?php echo htmlspecialchars($video['category']); ?></span>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -309,11 +318,11 @@ include 'header.php';
         
         <?php if(empty($video_resources)): ?>
         <div class="text-center py-5">
-            <div class="icon-circle-lg mx-auto mb-4">
-                <i class="fas fa-video text-gold"></i>
+            <div class="icon-circle-lg mx-auto mb-4" style="width: 80px; height: 80px; background: rgba(26, 54, 93, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; color: var(--royal-gold);">
+                <i class="fas fa-video"></i>
             </div>
-            <h3 class="fw-bold text-dark mb-3">No Video Resources Available</h3>
-            <p class="text-muted">Check back later for video resources.</p>
+            <h3 class="fw-bold text-dark mb-3" style="color: var(--royal-text);">No Video Resources Available</h3>
+            <p class="text-muted" style="color: var(--royal-text-dark);">Check back later for video resources.</p>
         </div>
         <?php endif; ?>
     </section>
@@ -322,10 +331,10 @@ include 'header.php';
 <!-- Audio Player Modal -->
 <div class="modal fade" id="audioPlayerModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content bg-white border-0">
-            <div class="modal-header border-bottom">
-                <h5 class="modal-title text-dark">
-                    <i class="fas fa-headphones text-gold me-2"></i>
+        <div class="modal-content bg-white border-0" style="border: 1px solid rgba(26, 54, 93, 0.2); border-radius: 16px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.12);">
+            <div class="modal-header border-bottom" style="border-bottom-color: rgba(26, 54, 93, 0.1);">
+                <h5 class="modal-title text-dark" style="color: var(--royal-text);">
+                    <i class="fas fa-headphones text-gold me-2" style="color: var(--royal-gold);"></i>
                     <span id="audioTitle">Audio Player</span>
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
@@ -335,9 +344,9 @@ include 'header.php';
                     <div class="audio-info mb-4">
                         <div class="d-flex align-items-center mb-2">
                             <span id="audioLevelBadge" class="badge me-2"></span>
-                            <small id="audioComplexity" class="text-muted"></small>
+                            <small id="audioComplexity" class="text-muted" style="color: var(--royal-text-dark);"></small>
                         </div>
-                        <p id="audioDescription" class="text-muted mb-0"></p>
+                        <p id="audioDescription" class="text-muted mb-0" style="color: var(--royal-text-dark);"></p>
                     </div>
                     
                     <div class="audio-controls mb-4">
@@ -345,31 +354,31 @@ include 'header.php';
                             Your browser does not support the audio element.
                         </audio>
                         <div class="audio-time mt-2 d-flex justify-content-between">
-                            <small class="text-muted" id="currentTime">0:00</small>
-                            <small class="text-muted" id="duration">0:00</small>
+                            <small class="text-muted" id="currentTime" style="color: var(--royal-text-dark);">0:00</small>
+                            <small class="text-muted" id="duration" style="color: var(--royal-text-dark);">0:00</small>
                         </div>
                     </div>
                     
                     <!-- Transcript Section -->
-                    <div class="transcript-section p-3 bg-light rounded border">
+                    <div class="transcript-section p-3 bg-light rounded border" style="background: var(--royal-light); border: 1px solid rgba(26, 54, 93, 0.1);">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h6 class="text-gold mb-0">
+                            <h6 class="text-gold mb-0" style="color: var(--royal-gold);">
                                 <i class="fas fa-file-alt me-2"></i>Transcript
                             </h6>
-                            <button id="copyTranscriptBtn" class="btn btn-outline-gold btn-sm d-none">
+                            <button id="copyTranscriptBtn" class="btn btn-outline-gold btn-sm d-none" style="color: var(--royal-gold); border: 2px solid var(--royal-gold); background: transparent; padding: 4px 8px; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">
                                 <i class="fas fa-copy me-1"></i> Copy Transcript
                             </button>
                         </div>
                         
                         <div id="transcriptContainer">
                             <div id="transcriptPlaceholder" class="text-center py-4">
-                                <i class="fas fa-file-alt text-gold mb-3" style="font-size: 32px;"></i>
-                                <p class="text-muted mb-0">No transcript available for this audio.</p>
+                                <i class="fas fa-file-alt text-gold mb-3" style="font-size: 32px; color: var(--royal-gold);"></i>
+                                <p class="text-muted mb-0" style="color: var(--royal-text-dark);">No transcript available for this audio.</p>
                             </div>
                             <div id="transcriptContent" class="d-none">
-                                <div id="transcriptText" class="transcript-text small mb-3"></div>
+                                <div id="transcriptText" class="transcript-text small mb-3" style="background: rgba(26, 54, 93, 0.05); border-radius: 8px; padding: 1rem; max-height: 300px; overflow-y: auto; line-height: 1.6; font-size: 0.9rem; white-space: pre-wrap; word-wrap: break-word;"></div>
                                 <div class="transcript-meta">
-                                    <small class="text-muted">
+                                    <small class="text-muted" style="color: var(--royal-text-dark);">
                                         <i class="fas fa-info-circle me-1"></i>
                                         Transcript provided by instructor
                                     </small>
@@ -386,10 +395,10 @@ include 'header.php';
 <!-- Video Player Modal -->
 <div class="modal fade" id="videoPlayerModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content bg-white border-0">
-            <div class="modal-header border-bottom">
-                <h5 class="modal-title text-dark">
-                    <i class="fas fa-video text-gold me-2"></i>
+        <div class="modal-content bg-white border-0" style="border: 1px solid rgba(26, 54, 93, 0.2); border-radius: 16px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.12);">
+            <div class="modal-header border-bottom" style="border-bottom-color: rgba(26, 54, 93, 0.1);">
+                <h5 class="modal-title text-dark" style="color: var(--royal-text);">
+                    <i class="fas fa-video text-gold me-2" style="color: var(--royal-gold);"></i>
                     <span id="videoTitle">Video Player</span>
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
@@ -402,9 +411,9 @@ include 'header.php';
                     <div class="video-info">
                         <div class="d-flex align-items-center mb-2">
                             <span id="videoCategoryBadge" class="badge me-2"></span>
-                            <small id="videoDuration" class="text-muted"></small>
+                            <small id="videoDuration" class="text-muted" style="color: var(--royal-text-dark);"></small>
                         </div>
-                        <p id="videoDescription" class="text-muted mb-0"></p>
+                        <p id="videoDescription" class="text-muted mb-0" style="color: var(--royal-text-dark);"></p>
                     </div>
                 </div>
             </div>
@@ -413,75 +422,60 @@ include 'header.php';
 </div>
 
 <style>
-    /* Light Theme Variables */
-    :root {
-        --royal-bg: #f8f9fa;
-        --royal-light: #ffffff;
-        --royal-card: #ffffff;
-        --royal-border: rgba(45, 90, 135, 0.2);
-        --royal-text: #212529;
-        --royal-text-dark: #6c757d;
-        --royal-gold: #2D5A87;
-        --royal-gold-light: #1A365D;
-        --royal-gold-dark: #0F204E;
-        --gold-gradient: linear-gradient(135deg, var(--royal-gold), var(--royal-gold-light));
-        --border-radius: 12px;
-        --border-radius-sm: 8px;
-        --border-radius-lg: 16px;
-        --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.1);
-        --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.1);
+    /* Resources Page Specific Styles */
+    .resource-stat-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
-    body {
-        background: var(--royal-bg);
-        color: var(--royal-text);
-    }
-    
-    .bg-light {
-        background-color: var(--royal-light) !important;
-    }
-    
-    .border-royal-gold {
+    .resource-stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         border-color: var(--royal-gold) !important;
     }
     
-    .text-gold {
-        color: var(--royal-gold) !important;
+    .material-card,
+    .example-card,
+    .video-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
-    .text-blue {
-        color: var(--royal-gold) !important;
+    .material-card:hover,
+    .example-card:hover,
+    .video-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        border-color: var(--royal-gold) !important;
     }
     
-    .text-dark {
-        color: var(--royal-text) !important;
+    .video-thumbnail:hover .play-overlay {
+        opacity: 1 !important;
     }
     
-    .text-muted {
-        color: var(--royal-text-dark) !important;
+    .video-thumbnail:hover .play-button {
+        transform: scale(1.1) !important;
     }
     
-    .btn-outline-gold {
-        color: var(--royal-gold);
-        border-color: var(--royal-gold);
-        background: transparent;
-        transition: var(--transition);
+    .letter-spacing-2 {
+        letter-spacing: 2px;
+    }
+    
+    .filter-buttons .btn-group {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .filter-buttons .btn {
+        border-radius: 8px !important;
+        padding: 6px 12px;
+        font-size: 14px;
     }
     
     .btn-outline-gold:hover,
     .btn-outline-gold.active {
-        background-color: var(--royal-gold);
-        color: white;
-        border-color: var(--royal-gold);
-        transform: translateY(-2px);
-    }
-    
-    .btn-outline-gold.active {
         background: var(--gold-gradient);
         border-color: var(--royal-gold);
-        color: white;
+        color: white !important;
+        transform: translateY(-2px);
     }
     
     .btn-royal {
@@ -489,153 +483,65 @@ include 'header.php';
         color: white;
         border: none;
         padding: 8px 16px;
-        border-radius: var(--border-radius-sm);
+        border-radius: 8px;
         font-weight: 600;
         text-decoration: none;
         display: inline-flex;
         align-items: center;
-        transition: var(--transition);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .btn-royal:hover {
         transform: translateY(-2px);
-        box-shadow: 0 0 20px rgba(45, 90, 135, 0.3);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
         color: white;
     }
     
-    .btn-royal.btn-sm {
-        padding: 6px 12px;
-        font-size: 14px;
+    /* Toast notifications */
+    .custom-toast {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: white;
+        border: 1px solid var(--royal-gold);
+        border-radius: 8px;
+        padding: 1rem 1.5rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+        z-index: 9999;
+        animation: slideIn 0.3s ease-out;
     }
     
-    /* Resources Page Styles */
-    .letter-spacing-2 {
-        letter-spacing: 2px;
+    .custom-toast.toast-success {
+        border-left: 4px solid #10B981;
     }
     
-    .resource-stat-card {
-        transition: var(--transition);
+    .custom-toast.toast-error {
+        border-left: 4px solid #EF4444;
     }
     
-    .resource-stat-card:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-lg) !important;
-        border-color: var(--royal-gold);
+    @keyframes slideIn {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
     }
     
-    .resource-stat-icon {
-        width: 70px;
-        height: 70px;
-        background: rgba(45, 90, 135, 0.1);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 28px;
+    @keyframes slideOut {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(100%);
+            opacity: 0;
+        }
     }
     
-    .material-card,
-    .example-card,
-    .video-card {
-        transition: var(--transition);
-    }
-    
-    .material-card:hover,
-    .example-card:hover,
-    .video-card:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-lg) !important;
-        border-color: var(--royal-gold);
-    }
-    
-    .material-icon,
-    .example-icon {
-        width: 50px;
-        height: 50px;
-        background: rgba(45, 90, 135, 0.1);
-        border-radius: var(--border-radius-sm);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        flex-shrink: 0;
-    }
-    
-    .play-overlay {
-        background: rgba(0, 0, 0, 0.5);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-    
-    .video-thumbnail:hover .play-overlay {
-        opacity: 1;
-    }
-    
-    .play-button {
-        width: 60px;
-        height: 60px;
-        background: var(--royal-gold);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 24px;
-        transition: transform 0.3s ease;
-    }
-    
-    .video-thumbnail:hover .play-button {
-        transform: scale(1.1);
-    }
-    
-    .duration-badge .badge {
-        font-size: 0.75rem;
-        padding: 0.25rem 0.5rem;
-    }
-    
-    .icon-circle-lg {
-        width: 80px;
-        height: 80px;
-        background: rgba(45, 90, 135, 0.1);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 32px;
-    }
-    
-    /* Level badges */
-    .level-badge-beginner {
-        background: rgba(16, 185, 129, 0.1);
-        color: #10B981;
-        border: 1px solid rgba(16, 185, 129, 0.2);
-    }
-    
-    .level-badge-intermediate {
-        background: rgba(245, 158, 11, 0.1);
-        color: #F59E0B;
-        border: 1px solid rgba(245, 158, 11, 0.2);
-    }
-    
-    .level-badge-advanced {
-        background: rgba(239, 68, 68, 0.1);
-        color: #EF4444;
-        border: 1px solid rgba(239, 68, 68, 0.2);
-    }
-    
-    /* Transcript styling */
-    .transcript-text {
-        background: rgba(45, 90, 135, 0.05);
-        border-radius: var(--border-radius-sm);
-        padding: 1rem;
-        max-height: 300px;
-        overflow-y: auto;
-        line-height: 1.6;
-        font-size: 0.9rem;
-        white-space: pre-wrap;
-        word-wrap: break-word;
-    }
-    
+    /* Scrollbar for transcript */
     .transcript-text::-webkit-scrollbar {
         width: 6px;
     }
@@ -650,55 +556,7 @@ include 'header.php';
         border-radius: 3px;
     }
     
-    /* Filter buttons group */
-    .filter-buttons .btn-group {
-        flex-wrap: wrap;
-        gap: 5px;
-    }
-    
-    .filter-buttons .btn {
-        border-radius: var(--border-radius-sm) !important;
-        padding: 6px 12px;
-        font-size: 14px;
-    }
-    
-    /* Toast notifications */
-    .toast {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background: white;
-        border: 1px solid var(--royal-gold);
-        border-radius: var(--border-radius-sm);
-        padding: 1rem 1.5rem;
-        box-shadow: var(--shadow);
-        z-index: 9999;
-        animation: slideIn 0.3s ease-out;
-    }
-    
-    .toast-success {
-        border-left: 4px solid #10B981;
-    }
-    
-    .toast-error {
-        border-left: 4px solid #EF4444;
-    }
-    
-    .toast-warning {
-        border-left: 4px solid #F59E0B;
-    }
-    
-    @keyframes slideIn {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    
+    /* Responsive Design */
     @media (max-width: 768px) {
         .display-3 {
             font-size: 2.5rem;
@@ -710,17 +568,6 @@ include 'header.php';
             font-size: 24px;
         }
         
-        .material-card,
-        .example-card,
-        .video-card {
-            margin-bottom: 1.5rem;
-        }
-        
-        .filter-buttons .btn-group {
-            width: 100%;
-            justify-content: center;
-        }
-        
         .d-flex.justify-content-between.align-items-center.mb-4 {
             flex-direction: column;
             align-items: flex-start;
@@ -729,6 +576,11 @@ include 'header.php';
         .filter-buttons {
             margin-top: 1rem;
             width: 100%;
+        }
+        
+        .filter-buttons .btn-group {
+            width: 100%;
+            justify-content: center;
         }
     }
     
@@ -894,7 +746,13 @@ function playAudio(audioFile, audioId, title, description, level, transcript) {
     
     // Set level badge
     audioLevelBadge.textContent = level.charAt(0).toUpperCase() + level.slice(1);
-    audioLevelBadge.className = `badge level-badge-${level}`;
+    audioLevelBadge.className = `badge`;
+    audioLevelBadge.style.background = level === 'beginner' ? 'rgba(16, 185, 129, 0.1)' : 
+                                      (level === 'intermediate' ? 'rgba(245, 158, 11, 0.1)' : 'rgba(239, 68, 68, 0.1)');
+    audioLevelBadge.style.color = level === 'beginner' ? '#10B981' : 
+                                 (level === 'intermediate' ? '#F59E0B' : '#EF4444');
+    audioLevelBadge.style.border = `1px solid ${level === 'beginner' ? 'rgba(16, 185, 129, 0.2)' : 
+                                     (level === 'intermediate' ? 'rgba(245, 158, 11, 0.2)' : 'rgba(239, 68, 68, 0.2)')}`;
     
     // Set complexity text
     const complexityText = {
@@ -967,7 +825,7 @@ function showToast(message, type = 'info') {
     toast.innerHTML = `
         <div class="d-flex align-items-center">
             <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'} me-2 text-${type === 'success' ? 'success' : type === 'error' ? 'danger' : 'info'}"></i>
-            <span>${message}</span>
+            <span style="color: var(--royal-text);">${message}</span>
         </div>
     `;
     
@@ -996,22 +854,6 @@ function showToast(message, type = 'info') {
         }
     }, 3000);
 }
-
-// Add slideOut animation
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideOut {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);
 
 // Video player function
 function playVideo(videoUrl, platform, title, description, videoId) {
@@ -1081,7 +923,10 @@ function playVideo(videoUrl, platform, title, description, videoId) {
     // Extract category from description or use default
     const category = extractCategoryFromDescription(description) || 'Education';
     videoCategoryBadge.textContent = category;
-    videoCategoryBadge.className = 'badge bg-light text-dark border border-royal-gold';
+    videoCategoryBadge.className = 'badge';
+    videoCategoryBadge.style.background = 'rgba(26, 54, 93, 0.1)';
+    videoCategoryBadge.style.color = 'var(--royal-gold)';
+    videoCategoryBadge.style.border = '1px solid rgba(26, 54, 93, 0.2)';
     videoDuration.textContent = 'Click to play';
     
     // Show modal
