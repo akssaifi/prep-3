@@ -45,15 +45,15 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
     <!-- Custom Compiled CSS -->
     <style>
         :root {
-            /* Light & Gold Color Palette */
-            --royal-light: #F8F9FA;
-            --royal-lighter: #F0F4F8;
-            --royal-light-accent: #E8EEF4;
-            --royal-white: #F8F9FA;
-            --royal-gold: #D4AF37;
-            --royal-gold-light: #FFD700;
-            --royal-gold-dark: #B7950B;
-            --royal-accent: #C9A227;
+            /* Light & Blue Color Palette */
+            --royal-light: #F0F4F8;
+            --royal-lighter: #E6EEF4;
+            --royal-light-accent: #D8E4ED;
+            --royal-white: #F8FAFC;
+            --royal-gold: #1A365D;
+            --royal-gold-light: #2D5A87;
+            --royal-gold-dark: #0F204E;
+            --royal-accent: #2D5A87;
             --royal-dark: #0F204E;
             --royal-darker: #0F204E;
             --royal-gray: #6C757D;
@@ -65,8 +65,8 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
             --royal-warning: #FFC107;
             --royal-danger: #DC3545;
             --royal-info: #17A2B8;
-            --royal-primary: #007BFF;
-            --royal-border: #D1D5DA;
+            --royal-primary: #2D5A87;
+            --royal-border: #B0C4DE;
             
             /* Layout Variables */
             --border-radius: 12px;
@@ -77,7 +77,7 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
             --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
             --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
-            --glow: 0 0 30px rgba(212, 175, 55, 0.15);
+            --glow: 0 0 30px rgba(26, 54, 93, 0.15);
             --gold-gradient: linear-gradient(135deg, var(--royal-gold), var(--royal-gold-light));
             --light-gradient: linear-gradient(135deg, var(--royal-white), var(--royal-lighter));
             --navbar-height: 80px;
@@ -112,7 +112,7 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
 }
 
 .close-modal:hover {
-    background: rgba(212, 175, 55, 0.1);
+    background: rgba(26, 54, 93, 0.1);
     transform: rotate(90deg);
 }
         body {
@@ -585,15 +585,15 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
     <!-- Custom Compiled CSS -->
      <style>
         :root {
-            /* Light & Gold Color Palette */
-            --royal-light: #F8F9FA;
-            --royal-lighter: #F0F4F8;
-            --royal-light-accent: #E8EEF4;
-            --royal-white: #F8F9FA;
-            --royal-gold: #D4AF37;
-            --royal-gold-light: #FFD700;
-            --royal-gold-dark: #B7950B;
-            --royal-accent: #C9A227;
+            /* Light & Blue Color Palette */
+            --royal-light: #F0F4F8;
+            --royal-lighter: #E6EEF4;
+            --royal-light-accent: #D8E4ED;
+            --royal-white: #F8FAFC;
+            --royal-gold: #1A365D;
+            --royal-gold-light: #2D5A87;
+            --royal-gold-dark: #0F204E;
+            --royal-accent: #2D5A87;
             --royal-dark: #0F204E;
             --royal-darker: #0F204E;
             --royal-gray: #6C757D;
@@ -605,8 +605,8 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
             --royal-warning: #FFC107;
             --royal-danger: #DC3545;
             --royal-info: #17A2B8;
-            --royal-primary: #007BFF;
-            --royal-border: #D1D5DA;
+            --royal-primary: #2D5A87;
+            --royal-border: #B0C4DE;
             
             /* Layout Variables */
             --border-radius: 12px;
@@ -617,7 +617,7 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
             --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
             --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
-            --glow: 0 0 30px rgba(212, 175, 55, 0.15);
+            --glow: 0 0 30px rgba(26, 54, 93, 0.15);
             --gold-gradient: linear-gradient(135deg, var(--royal-gold), var(--royal-gold-light));
             --light-gradient: linear-gradient(135deg, var(--royal-white), var(--royal-lighter));
             --navbar-height: 80px;
