@@ -1,1 +1,1 @@
-Nothing should be ignored based on the provided file changes. The modified files (`all_courses.php` and `resources.php`) are source code files that should be tracked in version control.
+(single_course.php is a source file, and there are no build artifacts, dependencies, or temp files in the changes)
