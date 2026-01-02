@@ -761,6 +761,82 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
                 $message_type = 'error';
             }
             break;
+
+        case 'add_blog':
+            $title = sanitize($_POST['title']);
+            $slug = generateSlug($title);
+            $content = $_POST['content']; // Don't sanitize HTML content
+            $status = sanitize($_POST['status']);
+
+            // Handle image upload
+            $image = '';
+            if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
+                $upload_dir = 'uploads/blogs/';
+                if (!file_exists($upload_dir)) {
+                    mkdir($upload_dir, 0777, true);
+                }
+
+                $image_name = time() . '_' . basename($_FILES['image']['name']);
+                $image_path = $upload_dir . $image_name;
+
+                if (move_uploaded_file($_FILES['image']['tmp_name'], $image_path)) {
+                    $image = $image_path;
+                }
+            }
+
+            $sql = "INSERT INTO blogs (title, slug, image, content, status) 
+                    VALUES ('$title', '$slug', '$image', '$content', '$status')";
+
+            if (mysqli_query($conn, $sql)) {
+                $message = 'Blog post added successfully!';
+                $message_type = 'success';
+            } else {
+                $message = 'Error adding blog post: ' . mysqli_error($conn);
+                $message_type = 'error';
+            }
+            break;
+
+        case 'edit_blog':
+            $id = intval($_POST['id']);
+            $title = sanitize($_POST['title']);
+            $content = $_POST['content']; // Don't sanitize HTML content
+            $status = sanitize($_POST['status']);
+
+            // Handle image upload
+            $image_sql = '';
+            if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
+                $upload_dir = 'uploads/blogs/';
+                if (!file_exists($upload_dir)) {
+                    mkdir($upload_dir, 0777, true);
+                }
+
+                $image_name = time() . '_' . basename($_FILES['image']['name']);
+                $image_path = $upload_dir . $image_name;
+
+                if (move_uploaded_file($_FILES['image']['tmp_name'], $image_path)) {
+                    $image = $image_path;
+                    $image_sql = ", image = '$image'";
+                }
+            } elseif (isset($_POST['image_current']) && !empty($_POST['image_current'])) {
+                $image_sql = ", image = '" . sanitize($_POST['image_current']) . "'";
+            }
+
+            $sql = "UPDATE blogs SET 
+                    title = '$title',
+                    content = '$content'
+                    $image_sql,
+                    status = '$status',
+                    updated_at = NOW()
+                    WHERE id = $id";
+
+            if (mysqli_query($conn, $sql)) {
+                header('Location: admin.php?section=blogs&message=Blog post updated successfully&type=success');
+                exit();
+            } else {
+                $message = 'Error updating blog post: ' . mysqli_error($conn);
+                $message_type = 'error';
+            }
+            break;
     }
 }
 
@@ -771,9 +847,11 @@ $stats = getDashboardStats($conn);
 // Get additional stats for new sections
 $speaking_examples_stats = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total, SUM(CASE WHEN status='published' THEN 1 ELSE 0 END) as published FROM speaking_examples"));
 $video_resources_stats = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total, SUM(CASE WHEN status='published' THEN 1 ELSE 0 END) as published FROM video_resources"));
+$blogs_stats = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total, SUM(CASE WHEN status='published' THEN 1 ELSE 0 END) as published FROM blogs"));
 
 $stats['total_speaking_examples'] = $speaking_examples_stats['published'] ?? 0;
 $stats['total_video_resources'] = $video_resources_stats['published'] ?? 0;
+$stats['total_blogs'] = $blogs_stats['published'] ?? 0;
 
 // Get current section
 $current_section = isset($_GET['section']) ? sanitize($_GET['section']) : 'dashboard';
@@ -2134,6 +2212,14 @@ function formatBytes($bytes, $decimals = 2)
                             <i class="fas fa-video nav-icon"></i>
                             <span class="nav-text">Video Resources</span>
                             <span class="nav-badge"><?php echo $stats['total_video_resources']; ?></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="admin.php?section=blogs"
+                            class="nav-link <?php echo $current_section == 'blogs' ? 'active' : ''; ?>">
+                            <i class="fas fa-blog nav-icon"></i>
+                            <span class="nav-text">Blog Posts</span>
+                            <span class="nav-badge"><?php echo $stats['total_blogs']; ?></span>
                         </a>
                     </li>
                 </ul>
@@ -3575,6 +3661,148 @@ function formatBytes($bytes, $decimals = 2)
                                                 </td>
                                             </tr>
                                         <?php endwhile; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            <?php endif; ?>
+
+            <?php if ($current_section == 'blogs'): ?>
+                <section id="blogs" class="content-section active">
+                    <div class="welcome-banner">
+                        <h2 class="welcome-title">Blog Posts Management</h2>
+                        <p class="welcome-text">Manage your blog posts, create new content, and engage your audience.</p>
+                    </div>
+
+                    <div class="royal-tabs">
+                        <button class="tab-btn active"
+                            data-tab="manage-blogs"><?php echo $edit_blog ? 'Edit Blog Post' : 'Add New Blog Post'; ?></button>
+                        <button class="tab-btn" data-tab="all-blogs">All Blog Posts</button>
+                    </div>
+
+                    <div id="manage-blogs" class="tab-content active">
+                        <div class="form-section">
+                            <form method="POST" autocomplete="off" enctype="multipart/form-data">
+                                <input type="hidden" name="action"
+                                    value="<?php echo $edit_blog ? 'edit_blog' : 'add_blog'; ?>">
+                                <?php if ($edit_blog): ?>
+                                    <input type="hidden" name="id" value="<?php echo $edit_blog['id']; ?>">
+                                    <?php if ($edit_blog['image']): ?>
+                                        <input type="hidden" name="image_current"
+                                            value="<?php echo htmlspecialchars($edit_blog['image']); ?>">
+                                    <?php endif; ?>
+                                <?php endif; ?>
+
+                                <div class="row"
+                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                                    <div class="form-group">
+                                        <label for="blog_title" class="form-label">Title *</label>
+                                        <input type="text" id="blog_title" name="title" class="form-control" required
+                                            autocomplete="off" placeholder="e.g., Tips for IELTS Writing Task 2"
+                                            value="<?php echo $edit_blog ? htmlspecialchars($edit_blog['title']) : ''; ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="blog_status" class="form-label">Status</label>
+                                        <div class="styled-select">
+                                            <select id="blog_status" name="status" class="form-control"
+                                                autocomplete="off">
+                                                <option value="draft" <?php echo ($edit_blog && $edit_blog['status'] == 'draft') ? 'selected' : ''; ?>>
+                                                    Draft</option>
+                                                <option value="published" <?php echo ($edit_blog && $edit_blog['status'] == 'published') ? 'selected' : ''; ?>>Published
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="blog_image" class="form-label">Featured Image</label>
+                                    <input type="file" id="blog_image" name="image" class="form-control"
+                                        accept="image/*" autocomplete="off">
+                                    <?php if ($edit_blog && $edit_blog['image']): ?>
+                                        <div class="mt-2">
+                                            <p>Current Image:</p>
+                                            <img src="<?php echo htmlspecialchars($edit_blog['image']); ?>" 
+                                                 alt="Current Image" style="max-width: 200px; height: auto; border-radius: 8px;">
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="blog_content" class="form-label">Content *</label>
+                                    <textarea id="blog_content" name="content" class="form-control" rows="15"
+                                        placeholder="Enter your blog post content here..."><?php echo $edit_blog ? htmlspecialchars($edit_blog['content']) : ''; ?></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-gold">
+                                    <i class="fas fa-<?php echo $edit_blog ? 'save' : 'plus-circle'; ?>"></i>
+                                    <?php echo $edit_blog ? 'Update Blog Post' : 'Add Blog Post'; ?>
+                                </button>
+                                <?php if ($edit_blog): ?>
+                                    <a href="admin.php?section=blogs" class="btn btn-dark"
+                                        style="margin-left: 10px;"><i class="fas fa-times"></i> Cancel</a>
+                                <?php endif; ?>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="all-blogs" class="tab-content">
+                        <div class="data-section">
+                            <div class="section-header">
+                                <h3 class="section-title"><i class="fas fa-list"></i> All Blog Posts</h3>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="royal-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Title</th>
+                                            <th>Status</th>
+                                            <th>Created</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $blogs = getAllBlogsAdmin($conn);
+                                        foreach ($blogs as $blog):
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $blog['id']; ?></td>
+                                                <td>
+                                                    <div class="table-item">
+                                                        <div class="item-info">
+                                                            <h4><?php echo htmlspecialchars($blog['title']); ?></h4>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="status-badge <?php echo $blog['status']; ?>">
+                                                        <?php echo ucfirst($blog['status']); ?>
+                                                    </span>
+                                                </td>
+                                                <td><?php echo date('M j, Y', strtotime($blog['created_at'])); ?></td>
+                                                <td>
+                                                    <div class="action-buttons">
+                                                        <a href="admin.php?section=blogs&action=edit&type=blog&id=<?php echo $blog['id']; ?>"
+                                                            class="action-btn edit-btn" title="Edit">
+                                                            <i class="fas fa-edit"></i>
+                                                        </a>
+                                                        <a href="admin.php?action=toggle_status&table=blogs&id=<?php echo $blog['id']; ?>&status=<?php echo $blog['status'] == 'published' ? 'draft' : 'published'; ?>&section=blogs"
+                                                            class="action-btn <?php echo $blog['status'] == 'published' ? 'disable-btn' : 'enable-btn'; ?>" title="<?php echo $blog['status'] == 'published' ? 'Unpublish' : 'Publish'; ?>">
+                                                            <i class="fas fa-<?php echo $blog['status'] == 'published' ? 'eye-slash' : 'eye'; ?>"></i>
+                                                        </a>
+                                                        <a href="admin.php?action=delete&table=blogs&id=<?php echo $blog['id']; ?>&section=blogs"
+                                                            class="action-btn delete-btn" title="Delete"
+                                                            onclick="return confirm('Are you sure you want to delete this blog post?')">
+                                                            <i class="fas fa-trash"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>

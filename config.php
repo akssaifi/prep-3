@@ -498,4 +498,42 @@ function getServiceCategories($conn)
     }
     return $categories;
 }
+
+// Blog Functions
+function getAllBlogs($conn, $limit = null)
+{
+    $sql = "SELECT * FROM blogs WHERE status = 'published' ORDER BY created_at DESC";
+    if ($limit) {
+        $sql .= " LIMIT " . (int)$limit;
+    }
+    $result = mysqli_query($conn, $sql);
+    $blogs = [];
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $blogs[] = $row;
+        }
+    }
+    return $blogs;
+}
+
+function getBlogById($conn, $id)
+{
+    $id = (int)$id;
+    $sql = "SELECT * FROM blogs WHERE id = $id AND status = 'published'";
+    $result = mysqli_query($conn, $sql);
+    return mysqli_fetch_assoc($result);
+}
+
+function getAllBlogsAdmin($conn)
+{
+    $sql = "SELECT * FROM blogs ORDER BY created_at DESC";
+    $result = mysqli_query($conn, $sql);
+    $blogs = [];
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $blogs[] = $row;
+        }
+    }
+    return $blogs;
+}
 ?>
