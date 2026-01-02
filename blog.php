@@ -59,16 +59,22 @@ include 'header.php';
                                         <?php echo date('F j, Y', strtotime($blog['created_at'])); ?>
                                     </small>
                                     <h3 class="fw-bold text-dark mb-3"><?php echo htmlspecialchars($blog['title']); ?></h3>
-                                    <div class="blog-excerpt">
+                                    <div class="blog-excerpt" id="blog-excerpt-<?php echo $blog['id']; ?>">
                                         <?php 
                                         $content = strip_tags($blog['content']);
                                         if (strlen($content) > 300) {
-                                            echo nl2br(htmlspecialchars(substr($content, 0, 300))) . '...';
+                                            echo '<div class="blog-preview" id="blog-preview-' . $blog['id'] . '">' . nl2br(htmlspecialchars(substr($content, 0, 300))) . '...</div>';
+                                            echo '<div class="blog-full-content d-none" id="blog-full-' . $blog['id'] . '">' . nl2br(htmlspecialchars($content)) . '</div>';
                                             ?>
                                             <button class="btn btn-link text-gold p-0 ms-1 read-more-btn" 
+                                                    data-blog-id="<?php echo $blog['id']; ?>"
                                                     data-content="<?php echo htmlspecialchars($blog['content']); ?>"
                                                     data-title="<?php echo htmlspecialchars($blog['title']); ?>">
                                                 Read More
+                                            </button>
+                                            <button class="btn btn-link text-gold p-0 ms-1 read-less-btn d-none" 
+                                                    data-blog-id="<?php echo $blog['id']; ?>">
+                                                Read Less
                                             </button>
                                             <?php
                                         } else {
@@ -86,20 +92,7 @@ include 'header.php';
     </div>
 </div>
 
-<!-- Read More Modal -->
-<div class="modal fade" id="readMoreModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-            <div class="modal-header border-bottom">
-                <h5 class="modal-title text-dark" id="readMoreModalTitle"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <div id="readMoreModalContent"></div>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <style>
     .blog-card {
@@ -137,17 +130,33 @@ include 'header.php';
     document.addEventListener('DOMContentLoaded', function() {
         // Read more button functionality
         const readMoreButtons = document.querySelectorAll('.read-more-btn');
+        const readLessButtons = document.querySelectorAll('.read-less-btn');
         
         readMoreButtons.forEach(button => {
             button.addEventListener('click', function() {
-                const content = this.getAttribute('data-content');
-                const title = this.getAttribute('data-title');
+                const blogId = this.getAttribute('data-blog-id');
                 
-                document.getElementById('readMoreModalTitle').textContent = title;
-                document.getElementById('readMoreModalContent').innerHTML = content;
+                // Show full content and hide preview
+                document.getElementById('blog-preview-' + blogId).classList.add('d-none');
+                document.getElementById('blog-full-' + blogId).classList.remove('d-none');
                 
-                const modal = new bootstrap.Modal(document.getElementById('readMoreModal'));
-                modal.show();
+                // Show read less button and hide read more button
+                this.classList.add('d-none');
+                document.querySelector('.read-less-btn[data-blog-id="' + blogId + '"]').classList.remove('d-none');
+            });
+        });
+        
+        readLessButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const blogId = this.getAttribute('data-blog-id');
+                
+                // Show preview and hide full content
+                document.getElementById('blog-preview-' + blogId).classList.remove('d-none');
+                document.getElementById('blog-full-' + blogId).classList.add('d-none');
+                
+                // Show read more button and hide read less button
+                this.classList.add('d-none');
+                document.querySelector('.read-more-btn[data-blog-id="' + blogId + '"]').classList.remove('d-none');
             });
         });
     });

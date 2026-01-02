@@ -1563,8 +1563,8 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
         /* App Float */
         .app-float {
             position: fixed;
-            bottom: 2rem;
-            right: 9rem; /* Positioned to the left of WhatsApp icon */
+            bottom: 90px; /* Positioned above WhatsApp icon */
+            left: 20px; /* Positioned on the left side (opposite to WhatsApp) */
             width: 60px;
             height: 60px;
             background: var(--gold-gradient);
@@ -1578,6 +1578,7 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
             z-index: 998;
             transition: var(--transition);
             animation: float 3s ease-in-out infinite;
+            cursor: pointer;
         }
 
         .app-float:hover {
@@ -1652,6 +1653,14 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
                 height: 55px;
                 font-size: 24px;
             }
+            
+            .app-float {
+                bottom: calc(1.5rem + 65px); /* Positioned above WhatsApp icon */
+                left: 1.5rem;
+                width: 55px;
+                height: 55px;
+                font-size: 24px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -1687,6 +1696,14 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
             .whatsapp-float {
                 bottom: 1rem;
                 right: 1rem;
+                width: 50px;
+                height: 50px;
+                font-size: 22px;
+            }
+            
+            .app-float {
+                bottom: calc(1rem + 60px); /* Positioned above WhatsApp icon */
+                left: 1rem;
                 width: 50px;
                 height: 50px;
                 font-size: 22px;
@@ -1933,12 +1950,10 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
                     <i class="fas fa-envelope me-1"></i> Contact
                 </a>
                 
-                <!-- App Download Badge (Only shown if app links exist) -->
-                <?php if(!empty($settings['android_app_link']) || !empty($settings['ios_app_link'])): ?>
-                <a class="nav-link-royal" href="javascript:void(0);" onclick="openAppModal()" style="color: var(--royal-gold);">
-                    <i class="fas fa-mobile-alt me-1"></i> Get App
+                <!-- Blog Link -->
+                <a class="nav-link-royal <?php echo $current_page == 'blog.php' ? 'active' : ''; ?>" href="blog.php">
+                    <i class="fas fa-blog me-1"></i> Blog
                 </a>
-                <?php endif; ?>
             </div>
             
             <div class="nav-actions">
@@ -2039,12 +2054,10 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
                     <i class="fas fa-envelope me-2"></i> Contact
                 </a>
                 
-                <!-- App Download in Mobile Menu -->
-                <?php if(!empty($settings['android_app_link']) || !empty($settings['ios_app_link'])): ?>
-                <a class="nav-link-royal" href="javascript:void(0);" onclick="openAppModal(); closeMobileMenu();" style="color: var(--royal-gold);">
-                    <i class="fas fa-mobile-alt me-2"></i> Get Mobile App
+                <!-- Blog Link in Mobile Menu -->
+                <a class="nav-link-royal <?php echo $current_page == 'blog.php' ? 'active' : ''; ?>" href="blog.php" onclick="closeMobileMenu();">
+                    <i class="fas fa-blog me-2"></i> Blog
                 </a>
-                <?php endif; ?>
             </div>
             
             <div class="mobile-actions">
@@ -2063,7 +2076,22 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
             </div>
         </div>
     </nav>
-    
+
+    <!-- App Floating Icon -->
+    <?php if(!empty($settings['android_app_link']) || !empty($settings['ios_app_link'])): ?>
+    <div class="app-float" onclick="openAppModal()" title="Download our app">
+        <i class="fas fa-mobile-alt"></i>
+    </div>
+    <?php endif; ?>
+
+    <!-- WhatsApp Floating Icon -->
+    <?php if(!empty($settings['whatsapp_number'])): ?>
+    <a href="https://wa.me/<?php echo preg_replace('/[^0-9]/', '', $settings['whatsapp_number']); ?>" 
+       class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <?php endif; ?>
+
     <main>
     
     <script>
@@ -2200,12 +2228,10 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
             }
         });
         
-        // Auto-show app modal on first visit (optional)
+        // Show app modal on first visit using local storage
         document.addEventListener('DOMContentLoaded', function() {
             // Check if user has seen the app modal before
             const hasSeenAppModal = localStorage.getItem('hasSeenAppModal');
-            
-            // Uncomment below to show modal on first visit
             
             if (!hasSeenAppModal && (<?php echo !empty($settings['android_app_link']) || !empty($settings['ios_app_link']) ? 'true' : 'false'; ?>)) {
                 setTimeout(() => {
@@ -2213,6 +2239,5 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
                     localStorage.setItem('hasSeenAppModal', 'true');
                 }, 3000); // Show after 3 seconds
             }
-            
         });
     </script>
