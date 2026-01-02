@@ -142,13 +142,15 @@ include 'header.php';
                     </div>
                     <div class="card-body-royal">
                         <p class="mission-text">
-                            To provide exceptional English language education and test preparation that empowers students to achieve their academic and professional goals globally.
+                            At PrepWithDaljeet, our mission is to:
                         </p>
                         <ul class="mission-list">
-                            <li><i class="fas fa-check-circle text-gold"></i> Deliver personalized, effective teaching</li>
-                            <li><i class="fas fa-check-circle text-gold"></i> Stay updated with latest exam patterns</li>
-                            <li><i class="fas fa-check-circle text-gold"></i> Make quality education accessible to all</li>
-                            <li><i class="fas fa-check-circle text-gold"></i> Foster confidence in English communication</li>
+                            <li><i class="fas fa-graduation-cap text-gold"></i> Provide expert coaching for IELTS, CELPIP, PTE, Duolingo English Test, TOEFL, OET, Spoken English, and French</li>
+                            <li><i class="fas fa-laptop-house text-gold"></i> Deliver online & offline training, video lessons, mock tests, and personalized mentoring</li>
+                            <li><i class="fas fa-plane-departure text-gold"></i> Support students with immigration & visa guidance for Canada, Australia, and the UK</li>
+                            <li><i class="fas fa-file-signature text-gold"></i> Assist with WES (Educational Credential Assessment) guidance and documentation support</li>
+                            <li><i class="fas fa-pen-nib text-gold"></i> Offer academic & content writing services, including SOPs, assignments, resumes, and cover letters</li>
+                            <li><i class="fas fa-bullseye text-gold"></i> Help learners achieve high test scores, global education, career growth, and PR success</li>
                         </ul>
                     </div>
                 </div>
@@ -163,14 +165,61 @@ include 'header.php';
                     </div>
                     <div class="card-body-royal">
                         <p class="mission-text">
-                            To be the most trusted and effective English education platform in India, recognized for transforming language learning experiences and producing outstanding results.
+                            Our vision is to:
                         </p>
                         <ul class="mission-list">
-                            <li><i class="fas fa-star text-gold"></i> Create future leaders in global communication</li>
-                            <li><i class="fas fa-star text-gold"></i> Set new standards in test preparation</li>
-                            <li><i class="fas fa-star text-gold"></i> Expand reach through technology</li>
-                            <li><i class="fas fa-star text-gold"></i> Build a community of successful learners</li>
+                            <li><i class="fas fa-globe text-gold"></i> Become a trusted global platform for language training, immigration, and academic support</li>
+                            <li><i class="fas fa-link text-gold"></i> Bridge language proficiency, exam success, and migration readiness</li>
+                            <li><i class="fas fa-lightbulb text-gold"></i> Provide smart, tech-enabled learning with modern assessment tools</li>
+                            <li><i class="fas fa-handshake text-gold"></i> Make quality education and ethical guidance accessible to all learners</li>
+                            <li><i class="fas fa-chart-line text-gold"></i> Empower students and professionals with confidence, clarity, and global communication skills</li>
+                            <li><i class="fas fa-star text-gold"></i> Create a one-stop solution for study abroad, PR preparation, and international careers</li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section-padding">
+        <div class="container-custom">
+            <div class="section-header text-center mb-5">
+                <span class="section-subtitle">Our Journey</span>
+                <h2 class="section-title">Company Timeline</h2>
+                <p class="section-description">Milestones that shaped our journey</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2004</div>
+                    <div class="timeline-content">
+                        <h4>Started mentoring students in English communication, grammar & confidence building, laying the foundation for a teaching-driven journey.</h4>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2005</div>
+                    <div class="timeline-content">
+                        <h4>Worked as an English faculty, teaching spoken English, IELTS & TOEFL with a practical, student-first approach.</h4>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2005–2024</div>
+                    <div class="timeline-content">
+                        <h4>Leading and expanded a language institute offering IELTS, CELPIP, PTE, Duolingo English Test, OET, French & Spoken English.</h4>
+                        <p class="timeline-subtitle">Growth Phase: Provided immigration & PR guidance, including visa counselling and WES/ECA process awareness for Canada, Australia & the UK.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2020 – Present</div>
+                    <div class="timeline-content">
+                        <h4>Delivered academic & content writing support, helping students with SOPs, resumes, assignments & documentation.</h4>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">Present</div>
+                    <div class="timeline-content">
+                        <h4>Founded PrepWithDaljeet—a unified platform offering language training, immigration support, WES guidance, and academic services.</h4>
                     </div>
                 </div>
             </div>
@@ -424,12 +473,12 @@ include 'header.php';
     }
     
     /* Timeline */
-    .story-timeline {
+    .timeline {
         position: relative;
         padding-left: 30px;
     }
     
-    .story-timeline::before {
+    .timeline::before {
         content: '';
         position: absolute;
         left: 0;
@@ -476,6 +525,12 @@ include 'header.php';
         color: var(--royal-dark);
         margin-bottom: 10px;
         font-size: 1.3rem;
+    }
+    
+    .timeline-subtitle {
+        color: var(--royal-text-dark);
+        font-style: italic;
+        margin-top: 10px;
     }
     
     .timeline-content p {
