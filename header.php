@@ -1564,7 +1564,7 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
         .app-float {
             position: fixed;
             bottom: 90px; /* Positioned above WhatsApp icon */
-            right: 20px;
+            left: 20px; /* Positioned on the left side (opposite to WhatsApp) */
             width: 60px;
             height: 60px;
             background: var(--gold-gradient);
@@ -1653,6 +1653,14 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
                 height: 55px;
                 font-size: 24px;
             }
+            
+            .app-float {
+                bottom: calc(1.5rem + 65px); /* Positioned above WhatsApp icon */
+                left: 1.5rem;
+                width: 55px;
+                height: 55px;
+                font-size: 24px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -1688,6 +1696,14 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
             .whatsapp-float {
                 bottom: 1rem;
                 right: 1rem;
+                width: 50px;
+                height: 50px;
+                font-size: 22px;
+            }
+            
+            .app-float {
+                bottom: calc(1rem + 60px); /* Positioned above WhatsApp icon */
+                left: 1rem;
                 width: 50px;
                 height: 50px;
                 font-size: 22px;
