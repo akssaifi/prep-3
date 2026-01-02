@@ -472,11 +472,11 @@ function getVideoResources($conn, $limit = 6)
 }
 
 // Email Configuration
-define('SMTP_HOST', 'smtp.gmail.com');
-define('SMTP_USER', 'your-email@gmail.com');
-define('SMTP_PASS', 'your-app-password');
-define('SMTP_PORT', 587);
-define('SMTP_SECURE', 'tls');
+define('SMTP_HOST', 'smtp.hostinger.com');
+define('SMTP_USER', 'prep@prepwithdaljeet.com');
+define('SMTP_PASS', 'W7*@NZ[wl@');
+define('SMTP_PORT', 465);
+define('SMTP_SECURE', 'ssl');
 
 // File Upload Function
 function uploadFile($file, $upload_dir = 'uploads/')

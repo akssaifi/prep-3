@@ -58,8 +58,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mail->Port       = SMTP_PORT;
             
             // Recipients
-            $mail->setFrom($settings['email'], $settings['site_name']);
-            $mail->addAddress($settings['email'], 'Admin');
+            $mail->setFrom($email, $name);
+            $mail->addAddress('director@prepwithdaljeet.com', 'Director');
             $mail->addReplyTo($email, $name);
             
             // Optional CC/BCC

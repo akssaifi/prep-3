@@ -1,6 +1,51 @@
 <?php
 require_once 'config.php';
+require_once 'PHPMailer/src/PHPMailer.php';
+require_once 'PHPMailer/src/SMTP.php';
+require_once 'PHPMailer/src/Exception.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 $settings = getSettings($conn);
+
+// Function to send email using PHPMailer
+function sendEmail($to, $subject, $body, $replyTo = '', $replyName = '') {
+    global $settings;
+    
+    try {
+        $mail = new PHPMailer(true);
+        
+        // Server settings
+        $mail->isSMTP();
+        $mail->Host       = SMTP_HOST;
+        $mail->SMTPAuth   = true;
+        $mail->Username   = SMTP_USER;
+        $mail->Password   = SMTP_PASS;
+        $mail->SMTPSecure = SMTP_SECURE;
+        $mail->Port       = SMTP_PORT;
+        
+        // Recipients
+        $mail->setFrom(SMTP_USER, $settings['site_name']);
+        $mail->addAddress($to);
+        
+        if (!empty($replyTo)) {
+            $mail->addReplyTo($replyTo, $replyName);
+        }
+        
+        // Content
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body    = $body;
+        
+        $mail->send();
+        return true;
+    } catch (Exception $e) {
+        error_log("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
+        return false;
+    }
+}
 
 // Handle contact form submission
 $success_message = '';
@@ -91,8 +136,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         $headers .= "Reply-To: $name <$email>\r\n";
         $headers .= "X-Mailer: PHP/" . phpversion();
         
-        // Send email to admin
-        if (mail($to, $email_subject, $email_body, $headers)) {
+        // Send email using PHPMailer
+        if (sendEmail($to, $email_subject, $email_body, $email, $name)) {
             // Send auto-reply to user
             $user_subject = "Thank you for contacting " . $settings['site_name'];
             $user_message = "
@@ -151,12 +196,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
             </html>
             ";
             
-            $user_headers = "MIME-Version: 1.0\r\n";
-            $user_headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-            $user_headers .= "From: " . $settings['site_name'] . " <$settings[email]>\r\n";
-            $user_headers .= "Reply-To: $settings[email]\r\n";
-            
-            mail($email, $user_subject, $user_message, $user_headers);
+            sendEmail($email, $user_subject, $user_message, $settings['email'], $settings['site_name']);
             
             $success_message = 'Thank you! Your message has been sent successfully. We will contact you soon.';
             
