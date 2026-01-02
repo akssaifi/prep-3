@@ -268,6 +268,23 @@ function sanitize($input)
     return mysqli_real_escape_string($conn, htmlspecialchars(trim($input), ENT_QUOTES, 'UTF-8'));
 }
 
+function sanitizeHtml($input)
+{
+    // Define allowed tags and attributes
+    $allowed_tags = '<p><br><strong><em><u><h1><h2><h3><h4><h5><h6><ul><ol><li><a><img><blockquote><code><pre><span>';
+    
+    // First strip all tags not in our allowed list
+    $input = strip_tags($input, $allowed_tags);
+    
+    // Additional security measures can be added here
+    // For example, remove dangerous attributes like onclick, javascript:, etc.
+    $input = preg_replace('/(on\w+\s*=)[^>]*>/i', '$1\"\" >', $input); // Remove event handlers
+    $input = preg_replace('/href\s*=\s*["\']javascript:/i', 'href=""', $input); // Remove javascript: links
+    $input = preg_replace('/src\s*=\s*["\']data:/i', 'src=""', $input); // Remove data: URLs
+    
+    return $input;
+}
+
 function generateSlug($string)
 {
     $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $string);

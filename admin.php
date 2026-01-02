@@ -771,7 +771,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         case 'add_blog':
             $title = sanitize($_POST['title']);
             $slug = generateSlug($title);
-            $content = $_POST['content']; // Don't sanitize HTML content
+            $content = sanitizeHtml($_POST['content']); // Sanitize HTML content safely
             $status = sanitize($_POST['status']);
 
             // Handle image upload
@@ -806,7 +806,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             $id = intval($_POST['id']);
             $title = sanitize($_POST['title']);
             $slug = generateSlug($title); // Generate slug from title
-            $content = $_POST['content']; // Don't sanitize HTML content
+            $content = sanitizeHtml($_POST['content']); // Sanitize HTML content safely
             $status = sanitize($_POST['status']);
 
             // Handle image upload
@@ -943,6 +943,8 @@ function formatBytes($bytes, $decimals = 2)
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+    <!-- TinyMCE for rich text editing -->
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <style>
         :root {
             --royal-dark: #0F0F0F;
@@ -3747,7 +3749,7 @@ function formatBytes($bytes, $decimals = 2)
                                 <div class="form-group">
                                     <label for="blog_content" class="form-label">Content *</label>
                                     <textarea id="blog_content" name="content" class="form-control" rows="15"
-                                        placeholder="Enter your blog post content here..."><?php echo $edit_blog ? htmlspecialchars($edit_blog['content']) : ''; ?></textarea>
+                                        placeholder="Enter your blog post content here..."><?php echo $edit_blog ? $edit_blog['content'] : ''; ?></textarea>
                                 </div>
 
                                 <button type="submit" class="btn btn-gold">
@@ -3804,13 +3806,14 @@ function formatBytes($bytes, $decimals = 2)
                                                             class="action-btn edit-btn" title="Edit">
                                                             <i class="fas fa-edit"></i>
                                                         </a>
-                                                        <a href="admin.php?action=toggle_status&table=blogs&id=<?php echo $blog['id']; ?>&status=<?php echo $blog['status'] == 'published' ? 'draft' : 'published'; ?>&section=blogs"
+                                                        <a href="javascript:void(0)" 
+                                                            onclick="toggleStatus('blog', <?php echo $blog['id']; ?>, '<?php echo $blog['status'] == 'published' ? 'draft' : 'published'; ?>')"
                                                             class="action-btn <?php echo $blog['status'] == 'published' ? 'disable-btn' : 'enable-btn'; ?>" title="<?php echo $blog['status'] == 'published' ? 'Unpublish' : 'Publish'; ?>">
                                                             <i class="fas fa-<?php echo $blog['status'] == 'published' ? 'eye-slash' : 'eye'; ?>"></i>
                                                         </a>
-                                                        <a href="admin.php?action=delete&table=blogs&id=<?php echo $blog['id']; ?>&section=blogs"
+                                                        <a href="javascript:void(0)" 
                                                             class="action-btn delete-btn" title="Delete"
-                                                            onclick="return confirm('Are you sure you want to delete this blog post?')">
+                                                            onclick="confirmDelete('blog', <?php echo $blog['id']; ?>, '<?php echo addslashes(htmlspecialchars($blog['title'])); ?>')">
                                                             <i class="fas fa-trash"></i>
                                                         </a>
                                                     </div>
@@ -4145,6 +4148,39 @@ function formatBytes($bytes, $decimals = 2)
                 const videoTab = document.querySelector('[data-tab="manage-videos"]');
                 if (videoTab) videoTab.click();
             <?php endif; ?>
+            <?php if ($edit_blog): ?>
+                const blogTab = document.querySelector('[data-tab="manage-blogs"]');
+                if (blogTab) blogTab.click();
+            <?php endif; ?>
+
+            // Initialize TinyMCE for blog content if on the blogs section
+            if (document.getElementById('blog_content')) {
+                tinymce.init({
+                    selector: '#blog_content',
+                    height: 400,
+                    menubar: false,
+                    plugins: [
+                        'advlist autolink lists link image charmap print preview anchor',
+                        'searchreplace visualblocks code fullscreen',
+                        'insertdatetime media table paste code help wordcount'
+                    ],
+                    toolbar: 'undo redo | formatselect | ' +
+                        'bold italic backcolor | alignleft aligncenter ' +
+                        'alignright alignjustify | bullist numlist outdent indent | ' +
+                        'removeformat | help',
+                    content_style: 'body { font-family: Inter, sans-serif; font-size: 14px }'
+                });
+
+                // Ensure TinyMCE content is synced to textarea on form submit
+                const form = document.querySelector('#manage-blogs form');
+                if (form) {
+                    form.addEventListener('submit', function() {
+                        if (tinymce.get('blog_content')) {
+                            tinymce.get('blog_content').save();
+                        }
+                    });
+                }
+            }
         });
 
         let deleteType = '';
