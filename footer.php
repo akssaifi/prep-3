@@ -1,7 +1,7 @@
 </main>
 
 <!-- Ultimate Premium Footer -->
-<footer class="bg-dark-blue text-white position-relative overflow-hidden">
+<footer class="bg-royal-dark text-white position-relative overflow-hidden">
     <!-- Background Elements -->
     <div class="footer-bg-elements">
         <div class="element element-1"></div>
@@ -20,12 +20,12 @@
                         <i class="fas fa-crown"></i>
                     </div>
                     <div>
-                        <h4 class="fw-bold mb-0 text-blue-gold"><?php echo htmlspecialchars($settings['site_name']); ?></h4>
-                        <small class="text-light"><?php echo htmlspecialchars($settings['tagline'] ?? 'Excellence in Education & Immigration'); ?></small>
+                        <h4 class="fw-bold mb-0 text-white"><?php echo htmlspecialchars($settings['site_name']); ?></h4>
+                        <small class="text-white">Excellence in Education & Immigration</small>
                     </div>
                 </div>
                 
-                <p class="text-light mb-4">
+                <p class="text-white mb-4">
                     We provide world-class coaching for English proficiency tests, comprehensive language training, 
                     and expert guidance for study abroad programs and immigration processes.
                 </p>
@@ -35,9 +35,9 @@
                 <div class="newsletter-form mb-4">
                     <h6 class="fw-bold mb-3 text-white">Subscribe to Newsletter</h6>
                     <form class="d-flex gap-2" id="newsletterForm">
-                        <input type="email" class="form-control form-control-sm bg-light-blue border-blue text-dark" 
+                        <input type="email" class="form-control form-control-sm bg-royal-light border-royal-gray text-white" 
                                placeholder="Your email" required id="newsletterEmail">
-                        <button type="submit" class="btn btn-blue btn-sm">
+                        <button type="submit" class="btn-royal btn-sm">
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </form>
@@ -83,41 +83,41 @@
             
             <!-- Quick Links -->
             <div class="col-lg-2 col-md-6">
-                <h5 class="fw-bold mb-4 text-uppercase text-gold">Quick Links</h5>
+                <h5 class="fw-bold mb-4 text-uppercase text-white">Quick Links</h5>
                 <ul class="list-unstyled footer-links">
                     <li class="mb-3">
                         <a href="index.php" class="text-white text-decoration-none d-flex align-items-center gap-3 hover-lift">
-                            <i class="fas fa-chevron-right fa-xs text-gold"></i>
+                            <i class="fas fa-chevron-right fa-xs text-white"></i>
                             <span>Home</span>
                         </a>
                     </li>
                     <li class="mb-3">
                         <a href="all_courses.php" class="text-white text-decoration-none d-flex align-items-center gap-3 hover-lift">
-                            <i class="fas fa-chevron-right fa-xs text-gold"></i>
+                            <i class="fas fa-chevron-right fa-xs text-white"></i>
                             <span>Courses</span>
                         </a>
                     </li>
                     <li class="mb-3">
                         <a href="services.php" class="text-white text-decoration-none d-flex align-items-center gap-3 hover-lift">
-                            <i class="fas fa-chevron-right fa-xs text-gold"></i>
+                            <i class="fas fa-chevron-right fa-xs text-white"></i>
                             <span>Services</span>
                         </a>
                     </li>
                     <li class="mb-3">
                         <a href="resources.php" class="text-white text-decoration-none d-flex align-items-center gap-3 hover-lift">
-                            <i class="fas fa-chevron-right fa-xs text-gold"></i>
+                            <i class="fas fa-chevron-right fa-xs text-white"></i>
                             <span>Resources</span>
                         </a>
                     </li>
                     <li class="mb-3">
                         <a href="about.php" class="text-white text-decoration-none d-flex align-items-center gap-3 hover-lift">
-                            <i class="fas fa-chevron-right fa-xs text-gold"></i>
+                            <i class="fas fa-chevron-right fa-xs text-white"></i>
                             <span>About Us</span>
                         </a>
                     </li>
                     <li>
                         <a href="contact.php" class="text-white text-decoration-none d-flex align-items-center gap-3 hover-lift">
-                            <i class="fas fa-chevron-right fa-xs text-gold"></i>
+                            <i class="fas fa-chevron-right fa-xs text-white"></i>
                             <span>Contact</span>
                         </a>
                     </li>
@@ -126,7 +126,7 @@
             
             <!-- Popular Courses -->
             <div class="col-lg-3 col-md-6">
-                <h5 class="fw-bold mb-4 text-uppercase text-gold">Popular Courses</h5>
+                <h5 class="fw-bold mb-4 text-uppercase text-white">Popular Courses</h5>
                 <ul class="list-unstyled footer-links">
                     <?php
                     $popular_courses = mysqli_query($conn, "SELECT name, slug FROM courses WHERE is_popular = 1 AND status = 'active' ORDER BY sort_order DESC LIMIT 5");
@@ -134,14 +134,14 @@
                     ?>
                     <li class="mb-3">
                         <a href="courses.php?slug=<?php echo $course['slug']; ?>" class="text-white text-decoration-none d-flex align-items-center gap-3 hover-lift">
-                            <i class="fas fa-book text-gold fa-xs"></i>
+                            <i class="fas fa-book text-white fa-xs"></i>
                             <span><?php echo htmlspecialchars($course['name']); ?></span>
                         </a>
                     </li>
                     <?php endwhile; ?>
                     
                     <li>
-                        <a href="all_courses.php" class="text-gold text-decoration-none d-flex align-items-center gap-3 hover-lift fw-bold">
+                        <a href="all_courses.php" class="text-white text-decoration-none d-flex align-items-center gap-3 hover-lift fw-bold">
                             <i class="fas fa-plus"></i>
                             <span>View All Courses</span>
                         </a>
@@ -151,7 +151,7 @@
             
             <!-- Contact Info -->
             <div class="col-lg-3 col-md-6">
-                <h5 class="fw-bold mb-4 text-uppercase text-gold">Contact Info</h5>
+                <h5 class="fw-bold mb-4 text-uppercase text-white">Contact Info</h5>
                 <ul class="list-unstyled contact-info">
                     <li class="mb-4">
                         <div class="d-flex align-items-start gap-3">
@@ -207,7 +207,7 @@
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div>
-                                <span class="text-light"><?php echo htmlspecialchars($settings['address']); ?></span>
+                                <span class="text-white"><?php echo htmlspecialchars($settings['address']); ?></span>
                             </div>
                         </div>
                     </li>
@@ -217,20 +217,20 @@
         </div>
         
         <!-- Footer Bottom -->
-        <div class="border-top border-blue pt-5">
+        <div class="border-top border-royal-gray pt-5">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="mb-0 text-light">
+                    <p class="mb-0 text-royal-text-dark">
                         &copy; <?php echo date('Y'); ?> <?php echo htmlspecialchars($settings['site_name']); ?>. All rights reserved.
                     </p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <div class="d-flex justify-content-md-end gap-4">
                         
-                        <a href="privacy.php" class="text-light text-decoration-none hover-lift">
+                        <a href="privacy.php" class="text-royal-text-dark text-decoration-none hover-lift">
                             Privacy Policy
                         </a>
-                        <a href="terms.php" class="text-light text-decoration-none hover-lift">
+                        <a href="terms.php" class="text-royal-text-dark text-decoration-none hover-lift">
                             Terms of Service
                         </a>
                     </div>
@@ -470,10 +470,10 @@
     }
     
     .social-link-premium:hover {
-        background: var(--blue-gold);
+        background: var(--royal-gold);
         transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-        color: white;
+        box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        color: var(--royal-dark);
     }
     
     .contact-icon {
@@ -484,7 +484,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        color: var(--royal-gold);
         flex-shrink: 0;
     }
     
