@@ -18,7 +18,7 @@ include 'header.php';
             <div class="hero-badge mb-4">
                 <span class="badge-gold">Since 2004</span>
             </div>
-            <h1 class="hero-title mb-3">About Daljeet Singh</h1>
+            <h1 class="hero-title mb-3">About PrepWithDaljeet</h1>
             <p class="hero-subtitle mb-4">Two decades of excellence in English education and test preparation</p>
             <div class="hero-buttons">
                 <a href="#journey" class="btn-royal">
@@ -77,53 +77,21 @@ include 'header.php';
 </section>
 
 <div class="container-custom py-5">
-    <!-- Founder's Story -->
+    <!-- Company Journey -->
     <section class="section-padding" id="journey">
-        <div class="row align-items-center g-5 mb-5">
-            <div class="col-lg-6">
-                <div class="founder-image-container">
-                    <div class="founder-image-placeholder">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <div class="founder-badge">
-                        <span class="founder-badge-text">Founder & Lead Instructor</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="section-header mb-4">
-                    <span class="section-subtitle">The Beginning</span>
-                    <h2 class="section-title">Meet Daljeet Singh</h2>
-                </div>
-                <div class="story-timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-year">2004</div>
-                        <div class="timeline-content">
-                            <h4>The Journey Begins</h4>
-                            <p>Daljeet Singh started his teaching career with a passion for English language and a vision to help students succeed in international exams. What began as small tutoring sessions quickly grew into a reputable coaching center.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2008</div>
-                        <div class="timeline-content">
-                            <h4>First Major Success</h4>
-                            <p>After four years of dedicated teaching, Daljeet achieved his first batch of students with perfect IELTS scores. This milestone established "Prep with Daljeet" as a trusted name in test preparation.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2015</div>
-                        <div class="timeline-content">
-                            <h4>Expansion & Innovation</h4>
-                            <p>Recognizing the changing educational landscape, Daljeet embraced digital learning. He started creating online courses and study materials, making quality education accessible to students across India.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">Present</div>
-                        <div class="timeline-content">
-                            <h4>Continuing Excellence</h4>
-                            <p>With nearly two decades of experience, Daljeet continues to innovate in teaching methodologies while maintaining the personal touch that has made his coaching so successful.</p>
-                        </div>
-                    </div>
+        <div class="section-header text-center mb-5">
+            <span class="section-subtitle">Our Journey</span>
+            <h2 class="section-title">Company Timeline</h2>
+            <p class="section-description">Milestones that shaped our journey</p>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-4">
+                    <p class="lead">Learn about the key milestones that have shaped our company's growth and success over the years.</p>
+                    <a href="#company-timeline" class="btn-royal">
+                        <i class="fas fa-history me-2"></i> View Complete Timeline
+                    </a>
                 </div>
             </div>
         </div>
@@ -182,7 +150,7 @@ include 'header.php';
     </section>
 
     <!-- Timeline -->
-    <section class="section-padding">
+    <section class="section-padding" id="company-timeline">
         <div class="container-custom">
             <div class="section-header text-center mb-5">
                 <span class="section-subtitle">Our Journey</span>
@@ -240,8 +208,8 @@ include 'header.php';
                         <i class="fas fa-quote-left"></i>
                     </div>
                     <blockquote class="quote-text">
-                        "Teaching isn't just about imparting knowledge; it's about inspiring confidence and unlocking potential. Every student has a unique journey, and my role is to guide them to their destination."
-                        <footer class="quote-author">— Daljeet Singh</footer>
+                        "Teaching isn't just about imparting knowledge; it's about inspiring confidence and unlocking potential. Every student has a unique journey, and our role is to guide them to their destination."
+                        <footer class="quote-author">— Our Teaching Philosophy</footer>
                     </blockquote>
                 </div>
             </div>

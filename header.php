@@ -46,27 +46,27 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
     <style>
         :root {
             /* Light & Gold Color Palette */
-            --royal-light: #FFFFFF;
-            --royal-lighter: #F8F9FA;
-            --royal-light-accent: #F0F2F5;
-            --royal-white: #FFFFFF;
+            --royal-light: #F8F9FA;
+            --royal-lighter: #F0F4F8;
+            --royal-light-accent: #E8EEF4;
+            --royal-white: #F8F9FA;
             --royal-gold: #D4AF37;
             --royal-gold-light: #FFD700;
             --royal-gold-dark: #B7950B;
             --royal-accent: #C9A227;
-            --royal-dark: #2C3E50;
-            --royal-darker: #1A252F;
+            --royal-dark: #0F204E;
+            --royal-darker: #0F204E;
             --royal-gray: #6C757D;
             --royal-gray-light: #8D99A7;
-            --royal-text: #2C3E50;
-            --royal-text-light: #495057;
-            --royal-text-dark: #6C757D;
+            --royal-text: #0F204E;
+            --royal-text-light: #1F3A6D;
+            --royal-text-dark: #4A5568;
             --royal-success: #28A745;
             --royal-warning: #FFC107;
             --royal-danger: #DC3545;
             --royal-info: #17A2B8;
             --royal-primary: #007BFF;
-            --royal-border: #E9ECEF;
+            --royal-border: #D1D5DA;
             
             /* Layout Variables */
             --border-radius: 12px;
@@ -586,27 +586,27 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
      <style>
         :root {
             /* Light & Gold Color Palette */
-            --royal-light: #FFFFFF;
-            --royal-lighter: #F8F9FA;
-            --royal-light-accent: #F0F2F5;
-            --royal-white: #FFFFFF;
+            --royal-light: #F8F9FA;
+            --royal-lighter: #F0F4F8;
+            --royal-light-accent: #E8EEF4;
+            --royal-white: #F8F9FA;
             --royal-gold: #D4AF37;
             --royal-gold-light: #FFD700;
             --royal-gold-dark: #B7950B;
             --royal-accent: #C9A227;
-            --royal-dark: #2C3E50;
-            --royal-darker: #1A252F;
+            --royal-dark: #0F204E;
+            --royal-darker: #0F204E;
             --royal-gray: #6C757D;
             --royal-gray-light: #8D99A7;
-            --royal-text: #2C3E50;
-            --royal-text-light: #495057;
-            --royal-text-dark: #6C757D;
+            --royal-text: #0F204E;
+            --royal-text-light: #1F3A6D;
+            --royal-text-dark: #4A5568;
             --royal-success: #28A745;
             --royal-warning: #FFC107;
             --royal-danger: #DC3545;
             --royal-info: #17A2B8;
             --royal-primary: #007BFF;
-            --royal-border: #E9ECEF;
+            --royal-border: #D1D5DA;
             
             /* Layout Variables */
             --border-radius: 12px;
