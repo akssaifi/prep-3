@@ -26,7 +26,15 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
     <?php else: ?>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <?php endif; ?>
-    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17549979663"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17549979663');
+</script>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -37,28 +45,28 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
     <!-- Custom Compiled CSS -->
     <style>
         :root {
-            /* Modern Dark & Light Color Palette */
-            --royal-light: #F5F7FA;
-            --royal-lighter: #ECEFF4;
-            --royal-light-accent: #E2E8F0;
+            /* Light & Gold Color Palette */
+            --royal-light: #FFFFFF;
+            --royal-lighter: #F8F9FA;
+            --royal-light-accent: #F0F2F5;
             --royal-white: #FFFFFF;
-            --royal-gold: #8B73C4; /* Purple accent */
-            --royal-gold-light: #A99ED0; /* Lighter purple */
-            --royal-gold-dark: #6B5B9A; /* Darker purple */
-            --royal-accent: #7D6AA7; /* Complementary purple */
-            --royal-dark: #2A2F43; /* Deep blue-gray */
-            --royal-darker: #1B1F2D; /* Dark blue-black */
-            --royal-gray: #7C8A9D; /* Muted blue-gray */
-            --royal-gray-light: #9CA8BA; /* Light blue-gray */
-            --royal-text: #333A4D; /* Dark blue-gray */
-            --royal-text-light: #5A6476; /* Lighter blue-gray */
-            --royal-text-dark: #6B7588; /* Medium blue-gray */
-            --royal-success: #4CAF8B; /* Sophisticated green */
-            --royal-warning: #FFB347; /* Warm amber */
-            --royal-danger: #E57373; /* Muted red */
-            --royal-info: #4FC3F7; /* Bright blue */
-            --royal-primary: #5C6BC0; /* Purple-blue */
-            --royal-border: #D1D5DA; /* Soft gray border */
+            --royal-gold: #D4AF37;
+            --royal-gold-light: #FFD700;
+            --royal-gold-dark: #B7950B;
+            --royal-accent: #C9A227;
+            --royal-dark: #2C3E50;
+            --royal-darker: #1A252F;
+            --royal-gray: #6C757D;
+            --royal-gray-light: #8D99A7;
+            --royal-text: #2C3E50;
+            --royal-text-light: #495057;
+            --royal-text-dark: #6C757D;
+            --royal-success: #28A745;
+            --royal-warning: #FFC107;
+            --royal-danger: #DC3545;
+            --royal-info: #17A2B8;
+            --royal-primary: #007BFF;
+            --royal-border: #E9ECEF;
             
             /* Layout Variables */
             --border-radius: 12px;
@@ -69,8 +77,8 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
             --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
             --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
-            --glow: 0 0 30px rgba(139, 115, 196, 0.15); /* Updated to match new purple */
-            --gold-gradient: linear-gradient(135deg, var(--royal-gold), var(--royal-gold-light)); /* Now purple gradient */
+            --glow: 0 0 30px rgba(212, 175, 55, 0.15);
+            --gold-gradient: linear-gradient(135deg, var(--royal-gold), var(--royal-gold-light));
             --light-gradient: linear-gradient(135deg, var(--royal-white), var(--royal-lighter));
             --navbar-height: 80px;
         }
@@ -84,7 +92,29 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
         html {
             scroll-behavior: smooth;
         }
-        
+        .close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: var(--royal-gold);
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.close-modal:hover {
+    background: rgba(212, 175, 55, 0.1);
+    transform: rotate(90deg);
+}
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--royal-white);
@@ -313,7 +343,52 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
             margin-top: 0.5rem;
             border-bottom: 1px solid rgba(212, 175, 55, 0.1);
         }
-        
+        /* Courses Dropdown with Scroll */
+.courses-dropdown {
+    max-height: 70vh !important;
+    overflow-y: auto !important;
+    min-width: 350px !important;
+}
+
+/* Custom scrollbar for dropdowns */
+.dropdown-menu-royal::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dropdown-menu-royal::-webkit-scrollbar-track {
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 3px;
+}
+
+.dropdown-menu-royal::-webkit-scrollbar-thumb {
+    background: var(--royal-gold);
+    border-radius: 3px;
+}
+
+.dropdown-menu-royal::-webkit-scrollbar-thumb:hover {
+    background: var(--royal-gold-dark);
+}
+
+/* Mobile dropdown scrollable */
+.mobile-dropdown-content {
+    max-height: 60vh !important;
+    overflow-y: auto !important;
+    padding-right: 10px;
+}
+
+.mobile-dropdown-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.mobile-dropdown-content::-webkit-scrollbar-track {
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 2px;
+}
+
+.mobile-dropdown-content::-webkit-scrollbar-thumb {
+    background: var(--royal-gold);
+    border-radius: 2px;
+}
         .nav-actions {
             display: flex;
             align-items: center;
@@ -510,28 +585,28 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
     <!-- Custom Compiled CSS -->
      <style>
         :root {
-            /* Modern Dark & Light Color Palette */
-            --royal-light: #F5F7FA;
-            --royal-lighter: #ECEFF4;
-            --royal-light-accent: #E2E8F0;
+            /* Light & Gold Color Palette */
+            --royal-light: #FFFFFF;
+            --royal-lighter: #F8F9FA;
+            --royal-light-accent: #F0F2F5;
             --royal-white: #FFFFFF;
-            --royal-gold: #8B73C4; /* Purple accent */
-            --royal-gold-light: #A99ED0; /* Lighter purple */
-            --royal-gold-dark: #6B5B9A; /* Darker purple */
-            --royal-accent: #7D6AA7; /* Complementary purple */
-            --royal-dark: #2A2F43; /* Deep blue-gray */
-            --royal-darker: #1B1F2D; /* Dark blue-black */
-            --royal-gray: #7C8A9D; /* Muted blue-gray */
-            --royal-gray-light: #9CA8BA; /* Light blue-gray */
-            --royal-text: #333A4D; /* Dark blue-gray */
-            --royal-text-light: #5A6476; /* Lighter blue-gray */
-            --royal-text-dark: #6B7588; /* Medium blue-gray */
-            --royal-success: #4CAF8B; /* Sophisticated green */
-            --royal-warning: #FFB347; /* Warm amber */
-            --royal-danger: #E57373; /* Muted red */
-            --royal-info: #4FC3F7; /* Bright blue */
-            --royal-primary: #5C6BC0; /* Purple-blue */
-            --royal-border: #D1D5DA; /* Soft gray border */
+            --royal-gold: #D4AF37;
+            --royal-gold-light: #FFD700;
+            --royal-gold-dark: #B7950B;
+            --royal-accent: #C9A227;
+            --royal-dark: #2C3E50;
+            --royal-darker: #1A252F;
+            --royal-gray: #6C757D;
+            --royal-gray-light: #8D99A7;
+            --royal-text: #2C3E50;
+            --royal-text-light: #495057;
+            --royal-text-dark: #6C757D;
+            --royal-success: #28A745;
+            --royal-warning: #FFC107;
+            --royal-danger: #DC3545;
+            --royal-info: #17A2B8;
+            --royal-primary: #007BFF;
+            --royal-border: #E9ECEF;
             
             /* Layout Variables */
             --border-radius: 12px;
@@ -542,8 +617,8 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
             --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
             --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
-            --glow: 0 0 30px rgba(139, 115, 196, 0.15); /* Updated to match new purple */
-            --gold-gradient: linear-gradient(135deg, var(--royal-gold), var(--royal-gold-light)); /* Now purple gradient */
+            --glow: 0 0 30px rgba(212, 175, 55, 0.15);
+            --gold-gradient: linear-gradient(135deg, var(--royal-gold), var(--royal-gold-light));
             --light-gradient: linear-gradient(135deg, var(--royal-white), var(--royal-lighter));
             --navbar-height: 80px;
         }
@@ -1833,51 +1908,54 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
     </a>
     <?php endif; ?>
 
-    <!-- App Download Modal -->
-    <div class="app-modal" id="appModal">
-        <div class="app-modal-content">
-            <h4 style="color: var(--royal-gold); margin-bottom: 1rem;">Download Our Mobile App</h4>
-            <p style="color: var(--royal-text-dark); margin-bottom: 1.5rem;">Choose your platform to download our app for a better learning experience.</p>
-            <div class="app-modal-buttons">
-                <?php if(!empty($settings['android_app_link'])): ?>
-                <a href="<?php echo htmlspecialchars($settings['android_app_link']); ?>" class="app-modal-button" target="_blank">
-                    <div class="app-icon">
-                        <i class="fab fa-android"></i>
-                    </div>
-                    <div class="app-info">
-                        <div class="app-name">Android App</div>
-                        <div class="app-desc">Download from Google Play</div>
-                    </div>
-                    <i class="fas fa-external-link-alt"></i>
-                </a>
-                <?php endif; ?>
-                
-                <?php if(!empty($settings['ios_app_link'])): ?>
-                <div class="app-modal-button" onclick="window.open('<?php echo htmlspecialchars($settings['ios_app_link']); ?>', '_blank')">
-                    <div class="app-icon">
-                        <i class="fab fa-apple"></i>
-                    </div>
-                    <div class="app-info">
-                        <div class="app-name">iOS App</div>
-                        <div class="app-desc">Download from App Store</div>
-                        <?php if(!empty($settings['ios_org_pass'])): ?>
-                        <div class="org-code-section" style="margin-top: 0.75rem; padding: 0.5rem; background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: var(--border-radius-sm); display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-key" style="color: var(--royal-gold); font-size: 1rem;"></i>
-                            <div style="font-weight: 600; color: var(--royal-gold-dark); font-size: 0.9rem;">
-                                Organization Code: <strong><?php echo htmlspecialchars($settings['ios_org_pass']); ?></strong>
-                            </div>
-                        </div>
-                        <?php endif; ?>
-                    </div>
-                    <i class="fas fa-external-link-alt"></i>
+   <!-- App Download Modal -->
+<div class="app-modal" id="appModal">
+    <div class="app-modal-content">
+        <button class="close-modal" onclick="closeAppModal()" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: var(--royal-gold); font-size: 1.5rem; cursor: pointer; z-index: 10;">
+            <i class="fas fa-times"></i>
+        </button>
+        <h4 style="color: var(--royal-gold); margin-bottom: 1rem;">Download Our Mobile App</h4>
+        <p style="color: var(--royal-text-dark); margin-bottom: 1.5rem;">Choose your platform to download our app for a better learning experience.</p>
+        <div class="app-modal-buttons">
+            <?php if(!empty($settings['android_app_link'])): ?>
+            <a href="<?php echo htmlspecialchars($settings['android_app_link']); ?>" class="app-modal-button" target="_blank">
+                <div class="app-icon">
+                    <i class="fab fa-android"></i>
                 </div>
-                <?php endif; ?>
+                <div class="app-info">
+                    <div class="app-name">Android App</div>
+                    <div class="app-desc">Download from Google Play</div>
+                </div>
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+            <?php endif; ?>
+            
+            <?php if(!empty($settings['ios_app_link'])): ?>
+            <div class="app-modal-button" onclick="window.open('<?php echo htmlspecialchars($settings['ios_app_link']); ?>', '_blank')">
+                <div class="app-icon">
+                    <i class="fab fa-apple"></i>
+                </div>
+                <div class="app-info">
+                    <div class="app-name">iOS App</div>
+                    <div class="app-desc">Download from App Store</div>
+                    <?php if(!empty($settings['ios_org_pass'])): ?>
+                    <div class="org-code-section" style="margin-top: 0.75rem; padding: 0.5rem; background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: var(--border-radius-sm); display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-key" style="color: var(--royal-gold); font-size: 1rem;"></i>
+                        <div style="font-weight: 600; color: var(--royal-gold-dark); font-size: 0.9rem;">
+                            Organization Code: <strong><?php echo htmlspecialchars($settings['ios_org_pass']); ?></strong>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                </div>
+                <i class="fas fa-external-link-alt"></i>
             </div>
-            <button class="btn btn-outline-gold" style="margin-top: 1.5rem; width: 100%;" onclick="closeAppModal()">
-                Close
-            </button>
+            <?php endif; ?>
         </div>
+        <button class="btn btn-outline-gold" style="margin-top: 1.5rem; width: 100%;" onclick="closeAppModal()">
+            Close
+        </button>
     </div>
+</div>
 
     <!-- Premium Navigation -->
     <nav class="navbar-royal">
@@ -1909,27 +1987,28 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
                         <i class="fas fa-graduation-cap me-1"></i> Courses
                         <i class="fas fa-chevron-down ms-1" style="font-size: 0.8rem;"></i>
                     </a>
-                    <div class="dropdown-menu-royal">
-                        <h6 class="dropdown-header-royal">Featured Courses</h6>
-                        <?php foreach($featured_courses_nav as $course): ?>
-                        <a class="dropdown-item-royal" href="courses.php?slug=<?php echo $course['slug']; ?>">
-                            <i class="<?php echo htmlspecialchars($course['icon']); ?>"></i>
-                            <div>
-                                <div><?php echo htmlspecialchars($course['name']); ?></div>
-                                <div class="text-royal-text-dark small mt-1"><?php echo htmlspecialchars($course['short_description']); ?></div>
-                            </div>
-                        </a>
-                        <?php endforeach; ?>
-                        
-                        <div class="dropdown-divider-royal"></div>
-                        <a class="dropdown-item-royal fw-bold text-gold" href="all_courses.php">
-                            <i class="fas fa-eye"></i>
-                            <div>
-                                <div>View All Courses</div>
-                                <div class="text-gold-light small mt-1">Complete course catalog</div>
-                            </div>
-                        </a>
-                    </div>
+<div class="dropdown-menu-royal courses-dropdown">
+    <h6 class="dropdown-header-royal">Courses</h6>
+    <a class="dropdown-item-royal fw-bold text-gold" href="all_courses.php">
+        <i class="fas fa-eye"></i>
+        <div>
+            <div>View All Courses</div>
+            <div class="text-gold-light small mt-1">Browse complete course catalog</div>
+        </div>
+    </a>
+    
+    <div class="dropdown-divider-royal"></div>
+    <h6 class="dropdown-header-royal">Featured Courses</h6>
+    <?php foreach($featured_courses_nav as $course): ?>
+    <a class="dropdown-item-royal" href="courses.php?slug=<?php echo $course['slug']; ?>">
+        <i class="<?php echo htmlspecialchars($course['icon']); ?>"></i>
+        <div>
+            <div><?php echo htmlspecialchars($course['name']); ?></div>
+            <div class="text-royal-text-dark small mt-1"><?php echo htmlspecialchars($course['short_description']); ?></div>
+        </div>
+    </a>
+    <?php endforeach; ?>
+</div>
                 </div>
                 
                 <a class="nav-link-royal <?php echo $current_page == 'services.php' ? 'active' : ''; ?>" href="services.php">
@@ -2015,24 +2094,26 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
                         <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
                     </a>
                     <div class="mobile-dropdown-content" id="mobileCoursesDropdown">
-                        <h6 class="dropdown-header-royal mb-2">Featured Courses</h6>
-                        <?php foreach($featured_courses_nav as $course): ?>
-                        <a class="dropdown-item-royal" href="courses.php?slug=<?php echo $course['slug']; ?>" onclick="closeMobileMenu()">
-                            <i class="<?php echo htmlspecialchars($course['icon']); ?>"></i>
-                            <div>
-                                <div><?php echo htmlspecialchars($course['name']); ?></div>
-                                <div class="text-royal-text-dark small mt-1"><?php echo htmlspecialchars($course['short_description']); ?></div>
-                            </div>
-                        </a>
-                        <?php endforeach; ?>
-                        <a class="dropdown-item-royal fw-bold text-gold" href="all_courses.php" onclick="closeMobileMenu()">
-                            <i class="fas fa-eye"></i>
-                            <div>
-                                <div>View All Courses</div>
-                                <div class="text-gold-light small mt-1">Complete course catalog</div>
-                            </div>
-                        </a>
-                    </div>
+    <h6 class="dropdown-header-royal mb-2">Courses</h6>
+    <a class="dropdown-item-royal fw-bold text-gold" href="all_courses.php" onclick="closeMobileMenu()">
+        <i class="fas fa-eye"></i>
+        <div>
+            <div>View All Courses</div>
+            <div class="text-gold-light small mt-1">Browse complete course catalog</div>
+        </div>
+    </a>
+    
+    <h6 class="dropdown-header-royal mb-2" style="margin-top: 1rem;">Featured Courses</h6>
+    <?php foreach($featured_courses_nav as $course): ?>
+    <a class="dropdown-item-royal" href="courses.php?slug=<?php echo $course['slug']; ?>" onclick="closeMobileMenu()">
+        <i class="<?php echo htmlspecialchars($course['icon']); ?>"></i>
+        <div>
+            <div><?php echo htmlspecialchars($course['name']); ?></div>
+            <div class="text-royal-text-dark small mt-1"><?php echo htmlspecialchars($course['short_description']); ?></div>
+        </div>
+    </a>
+    <?php endforeach; ?>
+</div>
                 </div>
                 
                 <a class="nav-link-royal <?php echo $current_page == 'services.php' ? 'active' : ''; ?>" href="services.php" onclick="closeMobileMenu()">
@@ -2123,128 +2204,152 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
     <main>
     
     <script>
-        // Mobile menu functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileToggle = document.getElementById('mobileToggle');
-            const mobileMenu = document.getElementById('mobileMenu');
-            const mobileMenuLinks = document.querySelectorAll('.mobile-menu a[href]');
-            
-            // Toggle mobile menu
-            mobileToggle.addEventListener('click', function(e) {
-                e.stopPropagation();
-                toggleMobileMenu();
-            });
-            
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
-                    closeMobileMenu();
-                }
-            });
-            
-            // Close mobile menu when clicking escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    closeMobileMenu();
-                }
-            });
-            
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
+    // Mobile menu functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu a[href]');
+        
+        // Toggle mobile menu
+        mobileToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                closeMobileMenu();
+            }
+        });
+        
+        // Close mobile menu when clicking escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                if (href === '#') return;
+                
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
                     
-                    if (href === '#') return;
-                    
-                    if (href.startsWith('#')) {
-                        e.preventDefault();
-                        const targetId = href.substring(1);
-                        const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        // Close mobile menu if open
+                        closeMobileMenu();
                         
-                        if (targetElement) {
-                            // Close mobile menu if open
-                            closeMobileMenu();
-                            
-                            // Smooth scroll
-                            window.scrollTo({
-                                top: targetElement.offsetTop - 100,
-                                behavior: 'smooth'
-                            });
-                        }
+                        // Smooth scroll
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
                     }
-                });
+                }
             });
         });
         
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const mobileToggle = document.getElementById('mobileToggle');
-            
-            mobileMenu.classList.toggle('active');
-            mobileToggle.innerHTML = mobileMenu.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-            
-            // Prevent body scroll when menu is open
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-        }
+        // Initialize app modal event listeners
+        setupAppModal();
+    });
+    
+    function toggleMobileMenu() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileToggle = document.getElementById('mobileToggle');
         
-        function closeMobileMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const mobileToggle = document.getElementById('mobileToggle');
-            
-            mobileMenu.classList.remove('active');
-            mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            document.body.style.overflow = '';
-            
-            // Close all dropdowns
-            closeAllMobileDropdowns();
-        }
+        mobileMenu.classList.toggle('active');
+        mobileToggle.innerHTML = mobileMenu.classList.contains('active') ? 
+            '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         
-        function toggleMobileDropdown(type) {
-            const dropdown = document.getElementById(`mobile${type.charAt(0).toUpperCase() + type.slice(1)}Dropdown`);
-            const toggle = document.querySelector(`[onclick="toggleMobileDropdown('${type}')"]`);
-            
-            // Close all other dropdowns
-            closeAllMobileDropdowns(type);
-            
-            // Toggle current dropdown
-            dropdown.classList.toggle('active');
-            toggle.classList.toggle('active');
-        }
+        // Prevent body scroll when menu is open
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+    
+    function closeMobileMenu() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileToggle = document.getElementById('mobileToggle');
         
-        function closeAllMobileDropdowns(except = null) {
-            const dropdowns = document.querySelectorAll('.mobile-dropdown-content');
-            const toggles = document.querySelectorAll('.mobile-dropdown-toggle');
-            
-            dropdowns.forEach(dropdown => {
-                dropdown.classList.remove('active');
-            });
-            
-            toggles.forEach(toggle => {
-                toggle.classList.remove('active');
-            });
-        }
+        mobileMenu.classList.remove('active');
+        mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        document.body.style.overflow = '';
         
-        // App Modal Functions
-        function openAppModal() {
-            const modal = document.getElementById('appModal');
+        // Close all dropdowns
+        closeAllMobileDropdowns();
+    }
+    
+    function toggleMobileDropdown(type) {
+        const dropdown = document.getElementById(`mobile${type.charAt(0).toUpperCase() + type.slice(1)}Dropdown`);
+        const toggle = document.querySelector(`[onclick="toggleMobileDropdown('${type}')"]`);
+        
+        // Close all other dropdowns
+        closeAllMobileDropdowns(type);
+        
+        // Toggle current dropdown
+        dropdown.classList.toggle('active');
+        toggle.classList.toggle('active');
+    }
+    
+    function closeAllMobileDropdowns(except = null) {
+        const dropdowns = document.querySelectorAll('.mobile-dropdown-content');
+        const toggles = document.querySelectorAll('.mobile-dropdown-toggle');
+        
+        dropdowns.forEach(dropdown => {
+            dropdown.classList.remove('active');
+        });
+        
+        toggles.forEach(toggle => {
+            toggle.classList.remove('active');
+        });
+    }
+    
+    // App Modal Functions
+    function openAppModal() {
+        const modal = document.getElementById('appModal');
+        if (modal) {
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-        
-        function closeAppModal() {
-            const modal = document.getElementById('appModal');
+    }
+    
+    function closeAppModal() {
+        const modal = document.getElementById('appModal');
+        if (modal) {
             modal.classList.remove('active');
             document.body.style.overflow = '';
         }
+    }
+    
+    function setupAppModal() {
+        const modal = document.getElementById('appModal');
+        if (!modal) return;
+        
+        // Add click handler to app-float icon
+        const appFloat = document.querySelector('.app-float');
+        if (appFloat) {
+            appFloat.addEventListener('click', function(e) {
+                e.stopPropagation();
+                openAppModal();
+            });
+        }
+        
+        // Add click handlers to other app download triggers
+        document.querySelectorAll('[onclick*="openAppModal"]').forEach(trigger => {
+            trigger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                openAppModal();
+            });
+        });
         
         // Close modal when clicking outside
-        document.addEventListener('click', function(e) {
-            const modal = document.getElementById('appModal');
-            if (modal && modal.classList.contains('active') && !modal.contains(e.target) && 
-                !e.target.closest('.nav-link-royal') && 
-                !e.target.closest('.btn-outline-gold') &&
-                !e.target.closest('.dropdown-item-royal')) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
                 closeAppModal();
             }
         });
@@ -2256,19 +2361,29 @@ $favicon_url = !empty($settings['favicon_url']) ? htmlspecialchars($settings['fa
             }
         });
         
-        // Show app modal on first visit using local storage
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check if user has seen the app modal before
-            const hasSeenAppModal = localStorage.getItem('hasSeenAppModal');
-            
-            if (!hasSeenAppModal && (<?php echo !empty($settings['android_app_link']) || !empty($settings['ios_app_link']) ? 'true' : 'false'; ?>)) {
-                setTimeout(() => {
-                    openAppModal();
-                    localStorage.setItem('hasSeenAppModal', 'true');
-                }, 3000); // Show after 3 seconds
-            }
+        // Close modal with close button (if you add one)
+        const closeButtons = document.querySelectorAll('[onclick*="closeAppModal"]');
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeAppModal();
+            });
         });
-    </script>
+    }
+    
+    // Show app modal on first visit using local storage
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if user has seen the app modal before
+        const hasSeenAppModal = localStorage.getItem('hasSeenAppModal');
+        
+        if (!hasSeenAppModal && (<?php echo !empty($settings['android_app_link']) || !empty($settings['ios_app_link']) ? 'true' : 'false'; ?>)) {
+            setTimeout(() => {
+                openAppModal();
+                localStorage.setItem('hasSeenAppModal', 'true');
+            }, 3000); // Show after 3 seconds
+        }
+    });
+</script>
     </main>
 </body>
 </html>
